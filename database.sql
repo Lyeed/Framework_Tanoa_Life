@@ -38,11 +38,9 @@ CREATE TABLE IF NOT EXISTS `companies` (
   PRIMARY KEY (`plate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.companies : ~0 rows (environ)
+-- Export de données de la table tanoa.companies : ~1 rows (environ)
 DELETE FROM `companies`;
 /*!40000 ALTER TABLE `companies` DISABLE KEYS */;
-INSERT INTO `companies` (`plate`, `name`, `owner`, `type`, `bank`, `members`, `INV_virtual`, `INV_arma`, `POS_x`, `POS_y`, `POS_z`, `POS_direction`, `link_percentage`, `CONSTRUCTION_built`, `CONSTRUCTION_require`) VALUES
-	('1', '2', '3333333333333', '4', 0, '7', '5', '6', 0, 0, 0, 0, 0, 0, '7');
 /*!40000 ALTER TABLE `companies` ENABLE KEYS */;
 
 -- Export de la structure de la table tanoa. companies_bank_transactions
@@ -86,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `factions` (
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.factions : ~0 rows (environ)
+-- Export de données de la table tanoa.factions : ~4 rows (environ)
 DELETE FROM `factions`;
 /*!40000 ALTER TABLE `factions` DISABLE KEYS */;
 INSERT INTO `factions` (`name`, `bank`, `history`) VALUES
@@ -287,7 +285,7 @@ CREATE TABLE IF NOT EXISTS `taxes` (
   PRIMARY KEY (`variable`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.taxes : ~0 rows (environ)
+-- Export de données de la table tanoa.taxes : ~4 rows (environ)
 DELETE FROM `taxes`;
 /*!40000 ALTER TABLE `taxes` DISABLE KEYS */;
 INSERT INTO `taxes` (`variable`, `value`) VALUES
