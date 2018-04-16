@@ -1,306 +1,334 @@
-SET FOREIGN_KEY_CHECKS=0;
+-- --------------------------------------------------------
+-- Hôte :                        127.0.0.1
+-- Version du serveur:           8.0.3-rc-log - MySQL Community Server (GPL)
+-- SE du serveur:                Win64
+-- HeidiSQL Version:             9.5.0.5196
+-- --------------------------------------------------------
 
--- ----------------------------
--- Table structure for `auctionhouse`
--- ----------------------------
-DROP TABLE IF EXISTS `auctionhouse`;
-CREATE TABLE `auctionhouse` (
-  `type` text NOT NULL,
-  `item` text NOT NULL,
-  `price` int(50) NOT NULL,
-  `uid` int(50) NOT NULL,
-  `carid` int(50) NOT NULL,
-  `location` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- ----------------------------
--- Records of auctionhouse
--- ----------------------------
 
--- ----------------------------
--- Table structure for `companies`
--- ----------------------------
+-- Export de la structure de la base pour tanoa
+DROP DATABASE IF EXISTS `tanoa`;
+CREATE DATABASE IF NOT EXISTS `tanoa` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `tanoa`;
+
+-- Export de la structure de la table tanoa. companies
 DROP TABLE IF EXISTS `companies`;
-CREATE TABLE `companies` (
-  `name` varchar(64) DEFAULT NULL,
-  `owner` varchar(64) DEFAULT NULL,
-  `type` varchar(64) DEFAULT NULL,
-  `bank` int(64) DEFAULT NULL,
-  `plate` int(64) DEFAULT NULL,
-  `POS_x` int(64) DEFAULT NULL,
-  `POS_y` int(64) DEFAULT NULL,
-  `POS_z` int(64) DEFAULT NULL,
-  `POS_direction` int(64) DEFAULT NULL,
-  `CONSTRUCTION_built` varchar(150) DEFAULT NULL,
-  `CONSTRUCTION_require` varchar(150) DEFAULT NULL,
-  `members` varchar(150) DEFAULT NULL,
-  `INV_virtual` varchar(150) DEFAULT NULL,
-  `INV_arma` varchar(150) DEFAULT NULL
+CREATE TABLE IF NOT EXISTS `companies` (
+  `plate` varchar(6) NOT NULL COMMENT 'Unique ID',
+  `name` varchar(50) NOT NULL DEFAULT '',
+  `owner` char(17) NOT NULL DEFAULT '' COMMENT 'PlayerUID',
+  `type` varchar(20) NOT NULL DEFAULT '',
+  `bank` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `members` text NOT NULL COMMENT 'Array',
+  `INV_virtual` text NOT NULL COMMENT 'Array',
+  `INV_arma` text NOT NULL COMMENT 'Array',
+  `POS_x` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
+  `POS_y` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
+  `POS_z` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
+  `POS_direction` smallint(3) NOT NULL DEFAULT '0' COMMENT 'Range [0-360(°)]',
+  `link_percentage` tinyint(2) unsigned NOT NULL DEFAULT '20' COMMENT 'Range [0-70(%)]',
+  `CONSTRUCTION_built` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `CONSTRUCTION_require` text NOT NULL COMMENT 'Array',
+  PRIMARY KEY (`plate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of companies
--- ----------------------------
+-- Export de données de la table tanoa.companies : ~0 rows (environ)
+DELETE FROM `companies`;
+/*!40000 ALTER TABLE `companies` DISABLE KEYS */;
+INSERT INTO `companies` (`plate`, `name`, `owner`, `type`, `bank`, `members`, `INV_virtual`, `INV_arma`, `POS_x`, `POS_y`, `POS_z`, `POS_direction`, `link_percentage`, `CONSTRUCTION_built`, `CONSTRUCTION_require`) VALUES
+	('1', '2', '3333333333333', '4', 0, '7', '5', '6', 0, 0, 0, 0, 0, 0, '7');
+/*!40000 ALTER TABLE `companies` ENABLE KEYS */;
 
--- ----------------------------
--- Table structure for `dynamic_markers`
--- ----------------------------
+-- Export de la structure de la table tanoa. companies_bank_transactions
+DROP TABLE IF EXISTS `companies_bank_transactions`;
+CREATE TABLE IF NOT EXISTS `companies_bank_transactions` (
+  `COMPANY_plate` varchar(6) NOT NULL,
+  `TRANS_reason` varchar(25) NOT NULL,
+  `TRANS_from` varchar(25) NOT NULL,
+  `TRANS_date` varchar(25) NOT NULL,
+  `TRANS_type` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT 'Boolean | 0 : withdraw | 1 : deposit',
+  `TRANS_value` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  KEY `COMPANY_plate` (`COMPANY_plate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Export de données de la table tanoa.companies_bank_transactions : ~0 rows (environ)
+DELETE FROM `companies_bank_transactions`;
+/*!40000 ALTER TABLE `companies_bank_transactions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `companies_bank_transactions` ENABLE KEYS */;
+
+-- Export de la structure de la table tanoa. dynamic_markers
 DROP TABLE IF EXISTS `dynamic_markers`;
-CREATE TABLE `dynamic_markers` (
-  `name` text NOT NULL,
-  `POS_X` text NOT NULL,
-  `POS_Y` text NOT NULL,
-  `POS_Z` text NOT NULL
+CREATE TABLE IF NOT EXISTS `dynamic_markers` (
+  `name` varchar(50) NOT NULL,
+  `POS_X` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
+  `POS_Y` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
+  `POS_Z` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
+  PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of dynamic_markers
--- ----------------------------
+-- Export de données de la table tanoa.dynamic_markers : ~0 rows (environ)
+DELETE FROM `dynamic_markers`;
+/*!40000 ALTER TABLE `dynamic_markers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dynamic_markers` ENABLE KEYS */;
 
--- ----------------------------
--- Table structure for `factions`
--- ----------------------------
+-- Export de la structure de la table tanoa. factions
 DROP TABLE IF EXISTS `factions`;
-CREATE TABLE `factions` (
-  `name` text NOT NULL,
-  `bank` text NOT NULL,
-  `history` varchar(50) NOT NULL
+CREATE TABLE IF NOT EXISTS `factions` (
+  `name` varchar(50) NOT NULL COMMENT 'ArmA3 side',
+  `bank` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `history` text NOT NULL COMMENT 'Array',
+  PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of factions
--- ----------------------------
+-- Export de données de la table tanoa.factions : ~0 rows (environ)
+DELETE FROM `factions`;
+/*!40000 ALTER TABLE `factions` DISABLE KEYS */;
+INSERT INTO `factions` (`name`, `bank`, `history`) VALUES
+	('CIV', 0, '"[]"'),
+	('EAST', 0, '"[]"'),
+	('GUER', 0, '"[]"'),
+	('WEST', 0, '"[]"');
+/*!40000 ALTER TABLE `factions` ENABLE KEYS */;
 
--- ----------------------------
--- Table structure for `houses`
--- ----------------------------
+-- Export de la structure de la table tanoa. houses
 DROP TABLE IF EXISTS `houses`;
-CREATE TABLE `houses` (
-  `pid` varchar(64) DEFAULT NULL,
-  `POS_x` int(64) DEFAULT NULL,
-  `POS_y` int(64) DEFAULT NULL,
-  `POS_z` int(64) DEFAULT NULL,
-  `STOCK_virtual` varchar(150) DEFAULT NULL,
-  `STOCK_arma` varchar(150) DEFAULT NULL,
-  `tenants` varchar(150) DEFAULT NULL,
-  `plate` int(50) DEFAULT NULL,
-  `classname` varchar(64) DEFAULT NULL
+CREATE TABLE IF NOT EXISTS `houses` (
+  `plate` mediumint(6) unsigned NOT NULL COMMENT 'Unique ID',
+  `classname` varchar(50) NOT NULL DEFAULT '' COMMENT 'ArmA3 classname',
+  `pid` char(17) NOT NULL DEFAULT '' COMMENT 'PlayerUID',
+  `STOCK_virtual` text NOT NULL COMMENT 'Array',
+  `STOCK_arma` text NOT NULL COMMENT 'Array',
+  `POS_x` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_y` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_z` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `tenants` text NOT NULL COMMENT 'Array',
+  PRIMARY KEY (`plate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of houses
--- ----------------------------
+-- Export de données de la table tanoa.houses : ~0 rows (environ)
+DELETE FROM `houses`;
+/*!40000 ALTER TABLE `houses` DISABLE KEYS */;
+/*!40000 ALTER TABLE `houses` ENABLE KEYS */;
 
--- ----------------------------
--- Table structure for `labo`
--- ----------------------------
+-- Export de la structure de la table tanoa. labo
 DROP TABLE IF EXISTS `labo`;
-CREATE TABLE `labo` (
-  `plate` int(6) DEFAULT NULL,
-  `owner` varchar(64) NOT NULL,
-  `type` varchar(50) DEFAULT NULL,
-  `POS_x` int(50) DEFAULT NULL,
-  `POS_y` int(50) DEFAULT NULL,
-  `POS_z` int(50) DEFAULT NULL,
-  `POS_direction` int(50) DEFAULT NULL,
-  `EXTRA_process` text,
-  `CONSTRUCTION_BUILT` text,
-  `CONSTRUCTION_REQUIRE` varchar(100) DEFAULT NULL,
-  `INV_virtual` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`owner`)
+CREATE TABLE IF NOT EXISTS `labo` (
+  `plate` mediumint(6) unsigned NOT NULL COMMENT 'Unique ID',
+  `owner` char(17) NOT NULL DEFAULT '' COMMENT 'PlayerUID',
+  `type` varchar(50) NOT NULL DEFAULT '',
+  `POS_x` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_y` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_z` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_direction` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Range [0-360(°)]',
+  `CONSTRUCTION_BUILT` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `CONSTRUCTION_REQUIRE` text NOT NULL COMMENT 'Array',
+  `INV_virtual` text NOT NULL COMMENT 'Array',
+  `EXTRA_process` text NOT NULL COMMENT 'Array',
+  PRIMARY KEY (`plate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of labo
--- ----------------------------
+-- Export de données de la table tanoa.labo : ~0 rows (environ)
+DELETE FROM `labo`;
+/*!40000 ALTER TABLE `labo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `labo` ENABLE KEYS */;
 
--- ----------------------------
--- Table structure for `land_atms`
--- ----------------------------
+-- Export de la structure de la table tanoa. land_atms
 DROP TABLE IF EXISTS `land_atms`;
-CREATE TABLE `land_atms` (
-  `POS_X` varchar(50) NOT NULL,
-  `POS_Y` varchar(50) NOT NULL,
-  `POS_Z` varchar(50) NOT NULL,
-  `amount` int(50) NOT NULL,
-  `type` text NOT NULL
+CREATE TABLE IF NOT EXISTS `land_atms` (
+  `amount` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `type` varchar(50) NOT NULL DEFAULT '' COMMENT 'ArmA3 classname',
+  `POS_X` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
+  `POS_Y` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
+  `POS_Z` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of land_atms
--- ----------------------------
+-- Export de données de la table tanoa.land_atms : ~0 rows (environ)
+DELETE FROM `land_atms`;
+/*!40000 ALTER TABLE `land_atms` DISABLE KEYS */;
+/*!40000 ALTER TABLE `land_atms` ENABLE KEYS */;
 
--- ----------------------------
--- Table structure for `land_fuels`
--- ----------------------------
+-- Export de la structure de la table tanoa. land_fuels
 DROP TABLE IF EXISTS `land_fuels`;
-CREATE TABLE `land_fuels` (
-  `type` text NOT NULL,
-  `POS_X` varchar(50) NOT NULL,
-  `POS_Y` varchar(50) NOT NULL,
-  `POS_Z` varchar(50) NOT NULL,
-  `fuel_Diesel` int(50) NOT NULL,
-  `fuel_SP95` int(50) NOT NULL,
-  `fuel_SP98` int(50) NOT NULL,
-  `fuel_Kerosene` int(50) NOT NULL,
-  `fuel_GPL` int(50) NOT NULL,
-  `fuel_BIO` int(50) NOT NULL
+CREATE TABLE IF NOT EXISTS `land_fuels` (
+  `type` varchar(50) NOT NULL,
+  `POS_X` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
+  `POS_Y` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
+  `POS_Z` float NOT NULL DEFAULT '0' COMMENT 'Position AGLS',
+  `fuel_Diesel` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Liter',
+  `fuel_SP95` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Liter',
+  `fuel_SP98` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Liter',
+  `fuel_Kerosene` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Liter',
+  `fuel_GPL` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Liter',
+  `fuel_BIO` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Liter'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of land_fuels
--- ----------------------------
+-- Export de données de la table tanoa.land_fuels : ~0 rows (environ)
+DELETE FROM `land_fuels`;
+/*!40000 ALTER TABLE `land_fuels` DISABLE KEYS */;
+/*!40000 ALTER TABLE `land_fuels` ENABLE KEYS */;
 
--- ----------------------------
--- Table structure for `players`
--- ----------------------------
+-- Export de la structure de la table tanoa. players
 DROP TABLE IF EXISTS `players`;
-CREATE TABLE `players` (
-  `uid` varchar(64) NOT NULL,
-  `profileName` varchar(32) NOT NULL,
-  `RP_firstname` varchar(32) DEFAULT NULL,
-  `RP_lastname` varchar(32) DEFAULT NULL,
-  `RP_birth` text,
-  `RP_nationality` varchar(32) DEFAULT NULL,
-  `RP_sexe` varchar(32) DEFAULT NULL,
-  `DYN_markers` text NOT NULL,
-  `LEVEL_donator` enum('2','1','0') NOT NULL DEFAULT '0',
-  `HEALTH_blood` int(3) NOT NULL DEFAULT '4000',
-  `HEALTH_bleed` int(3) NOT NULL DEFAULT '0',
-  `HEALTH_coma` tinyint(1) NOT NULL DEFAULT '0',
-  `POS_x` int(50) NOT NULL DEFAULT '0',
-  `POS_y` int(50) NOT NULL DEFAULT '0',
-  `POS_z` int(50) NOT NULL DEFAULT '0',
-  `POS_alive` int(50) NOT NULL DEFAULT '0',
-  `POS_direction` int(50) NOT NULL DEFAULT '0',
-  `HEALTH_deseases` varchar(100) NOT NULL DEFAULT '[[],[],[]]',
-  `HEALTH_hunger` int(50) NOT NULL DEFAULT '100',
-  `HEALTH_thirst` int(50) NOT NULL DEFAULT '100',
-  `WEST_level` varchar(2) NOT NULL DEFAULT '0',
-  `GUER_level` varchar(2) NOT NULL DEFAULT '0',
-  `EAST_level` varchar(2) NOT NULL DEFAULT '0',
-  `CIV_level` varchar(2) NOT NULL DEFAULT '1',
-  `JAIL_prison` text,
-  `JAIL_cell` text,
-  `JAIL_time` int(50) DEFAULT NULL,
-  `JAIL_caution` text,
-  `JAIL_reason` text,
-  `JAIL_escape` tinyint(1) NOT NULL DEFAULT '0',
-  `JAIL_gear` text,
-  `PHONE_number` varchar(50) DEFAULT NULL,
-  `PHONE_contacts` varchar(100) DEFAULT NULL,
-  `PHONE_messages` varchar(100) DEFAULT NULL,
-  `PHONE_forfait` varchar(10) DEFAULT NULL,
-  `PHONE_blacklist` varchar(100) DEFAULT NULL,
-  `RP_face` varchar(32) DEFAULT NULL,
-  `HEALTH_alcool` int(50) DEFAULT '0',
-  `HEALTH_hurt` int(50) DEFAULT '100',
-  `PHONE_annuaire` varchar(150) NOT NULL DEFAULT '"[]"',
-  `CIV_licenses` text,
-  `CIV_cash` int(50) DEFAULT '0',
-  `CIV_atm` int(50) DEFAULT '15000',
-  `CIV_inventory` text,
-  `CIV_gear` text,
-  `TABLET_apps` text,
-  `WEST_gear` text,
-  `EAST_gear` text,
-  `WEST_inventory` text,
-  `WEST_licenses` text,
-  `EAST_inventory` text,
-  `EAST_licenses` text,
-  `GUER_gear` text,
-  `GUER_inventory` text,
-  `GUER_licenses` text,
-  `STATS_global_played` varchar(50) DEFAULT '0',
-  `HEALTH_fatigue` int(1) DEFAULT '0',
-  `GUER_cash` int(50) NOT NULL DEFAULT '0',
-  `GUER_atm` int(50) NOT NULL DEFAULT '50000',
-  `EAST_cash` int(50) NOT NULL DEFAULT '0',
-  `EAST_atm` int(50) NOT NULL DEFAULT '50000',
-  `WEST_cash` int(50) NOT NULL DEFAULT '0',
-  `WEST_atm` int(50) NOT NULL DEFAULT '50000',
+CREATE TABLE IF NOT EXISTS `players` (
+  `uid` char(17) NOT NULL COMMENT 'PlayerUID',
+  `profileName` varchar(60) NOT NULL DEFAULT '',
+  `RP_firstname` varchar(30) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
+  `RP_lastname` varchar(30) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
+  `RP_birth` varchar(20) NOT NULL DEFAULT '"[]"' COMMENT 'Roleplay information - Array',
+  `RP_nationality` varchar(20) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
+  `RP_sexe` varchar(10) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
+  `RP_face` varchar(50) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
+  `DYN_markers` text NOT NULL COMMENT 'Array',
+  `LEVEL_donator` enum('0','1','2') NOT NULL DEFAULT '0',
+  `HEALTH_blood` smallint(4) unsigned NOT NULL DEFAULT '4000' COMMENT 'Range [0-4000]',
+  `HEALTH_bleed` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `HEALTH_coma` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `POS_x` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_y` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_z` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_alive` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `POS_direction` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Range [0-360(°)]',
+  `HEALTH_deseases` text NOT NULL COMMENT 'Array',
+  `HEALTH_hunger` tinyint(3) unsigned NOT NULL DEFAULT '100' COMMENT 'Range [0-100]',
+  `HEALTH_thirst` tinyint(3) unsigned NOT NULL DEFAULT '100' COMMENT 'Range [0-100]',
+  `HEALTH_fatigue` double unsigned NOT NULL DEFAULT '0' COMMENT 'Range [0-1]',
+  `HEALTH_alcool` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `HEALTH_hurt` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `WEST_level` varchar(2) NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
+  `GUER_level` varchar(2) NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
+  `EAST_level` varchar(2) NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
+  `CIV_level` varchar(2) NOT NULL DEFAULT '1' COMMENT 'Faction rank (see Faction config to define ranks)',
+  `JAIL_prison` varchar(2) NOT NULL DEFAULT '',
+  `JAIL_cell` varchar(50) NOT NULL DEFAULT '',
+  `JAIL_time` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Minuts',
+  `JAIL_caution` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `JAIL_reason` varchar(50) NOT NULL DEFAULT '',
+  `JAIL_escape` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `JAIL_gear` text NOT NULL COMMENT 'Array',
+  `PHONE_number` varchar(10) NOT NULL DEFAULT '',
+  `PHONE_contacts` text NOT NULL COMMENT 'Array',
+  `PHONE_messages` text NOT NULL COMMENT 'Array',
+  `PHONE_forfait` varchar(50) NOT NULL DEFAULT '' COMMENT 'See Phone config',
+  `PHONE_blacklist` text NOT NULL COMMENT 'Array',
+  `PHONE_annuaire` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `CIV_licenses` text NOT NULL COMMENT 'Array',
+  `CIV_inventory` text NOT NULL COMMENT 'Array',
+  `CIV_gear` text NOT NULL COMMENT 'Array',
+  `TABLET_apps` text NOT NULL COMMENT 'Array',
+  `WEST_gear` text NOT NULL COMMENT 'Array',
+  `EAST_gear` text NOT NULL COMMENT 'Array',
+  `WEST_inventory` text NOT NULL COMMENT 'Array',
+  `WEST_licenses` text NOT NULL COMMENT 'Array',
+  `EAST_inventory` text NOT NULL COMMENT 'Array',
+  `EAST_licenses` text NOT NULL COMMENT 'Array',
+  `GUER_gear` text NOT NULL COMMENT 'Array',
+  `GUER_inventory` text NOT NULL COMMENT 'Array',
+  `GUER_licenses` text NOT NULL COMMENT 'Array',
+  `STATS_global_played` smallint(5) unsigned DEFAULT '0' COMMENT 'Total minuts played',
+  `STATS_last_update` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last connection',
+  `STATS_first_connection` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'First connection',
+  `CIV_cash` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `CIV_atm` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `GUER_cash` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `GUER_atm` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `EAST_cash` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `EAST_atm` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `WEST_cash` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  `WEST_atm` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of players
--- ----------------------------
+-- Export de données de la table tanoa.players : ~0 rows (environ)
+DELETE FROM `players`;
+/*!40000 ALTER TABLE `players` DISABLE KEYS */;
+/*!40000 ALTER TABLE `players` ENABLE KEYS */;
 
--- ----------------------------
--- Table structure for `ressources`
--- ----------------------------
+-- Export de la structure de la table tanoa. ressources
 DROP TABLE IF EXISTS `ressources`;
-CREATE TABLE `ressources` (
-  `name` text NOT NULL,
-  `price` int(50) NOT NULL
+CREATE TABLE IF NOT EXISTS `ressources` (
+  `name` varchar(50) NOT NULL,
+  `price` mediumint(8) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
+  PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of ressources
--- ----------------------------
+-- Export de données de la table tanoa.ressources : ~0 rows (environ)
+DELETE FROM `ressources`;
+/*!40000 ALTER TABLE `ressources` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ressources` ENABLE KEYS */;
 
--- ----------------------------
--- Table structure for `serverinfo`
--- ----------------------------
+-- Export de la structure de la table tanoa. serverinfo
 DROP TABLE IF EXISTS `serverinfo`;
-CREATE TABLE `serverinfo` (
-  `year` int(50) NOT NULL,
-  `month` int(50) NOT NULL,
-  `day` int(50) NOT NULL,
-  `hour` int(50) NOT NULL,
-  `minute` int(50) NOT NULL
+CREATE TABLE IF NOT EXISTS `serverinfo` (
+  `year` smallint(4) unsigned NOT NULL DEFAULT '2000',
+  `month` tinyint(2) unsigned NOT NULL DEFAULT '12',
+  `day` tinyint(2) unsigned NOT NULL DEFAULT '1',
+  `hour` tinyint(2) unsigned NOT NULL DEFAULT '12',
+  `minute` tinyint(2) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of serverinfo
--- ----------------------------
-INSERT INTO `serverinfo` VALUES ('2018', '5', '30', '12', '0');
+-- Export de données de la table tanoa.serverinfo : ~1 rows (environ)
+DELETE FROM `serverinfo`;
+/*!40000 ALTER TABLE `serverinfo` DISABLE KEYS */;
+INSERT INTO `serverinfo` (`year`, `month`, `day`, `hour`, `minute`) VALUES
+	(2030, 10, 24, 12, 0);
+/*!40000 ALTER TABLE `serverinfo` ENABLE KEYS */;
 
--- ----------------------------
--- Table structure for `taxes`
--- ----------------------------
+-- Export de la structure de la table tanoa. taxes
 DROP TABLE IF EXISTS `taxes`;
-CREATE TABLE `taxes` (
+CREATE TABLE IF NOT EXISTS `taxes` (
   `variable` varchar(50) NOT NULL,
-  `value` int(2) NOT NULL DEFAULT '1'
+  `value` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT 'Factor/Coef (Range [0-1])',
+  PRIMARY KEY (`variable`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of taxes
--- ----------------------------
-INSERT INTO `taxes` VALUES ('gServer_tax_companies_building_multiplier', '1');
-INSERT INTO `taxes` VALUES ('gServer_tax_house_multiplier', '1');
-INSERT INTO `taxes` VALUES ('gServer_tax_salary_multiplier', '1');
-INSERT INTO `taxes` VALUES ('gServer_tax_companies_employee_multiplier', '1');
+-- Export de données de la table tanoa.taxes : ~0 rows (environ)
+DELETE FROM `taxes`;
+/*!40000 ALTER TABLE `taxes` DISABLE KEYS */;
+INSERT INTO `taxes` (`variable`, `value`) VALUES
+	('gServer_tax_companies_building_multiplier', 1),
+	('gServer_tax_companies_employee_multiplier', 1),
+	('gServer_tax_house_multiplier', 1),
+	('gServer_tax_salary_multiplier', 1);
+/*!40000 ALTER TABLE `taxes` ENABLE KEYS */;
 
--- ----------------------------
--- Table structure for `vehicles`
--- ----------------------------
+-- Export de la structure de la table tanoa. vehicles
 DROP TABLE IF EXISTS `vehicles`;
-CREATE TABLE `vehicles` (
-  `side` varchar(50) NOT NULL,
-  `classname` varchar(50) DEFAULT NULL,
-  `type` varchar(50) NOT NULL DEFAULT '''CAR''',
-  `pid` varchar(64) NOT NULL,
-  `inventory` varchar(100) DEFAULT NULL,
-  `plate` int(50) NOT NULL,
-  `displayname` varchar(100) DEFAULT NULL,
-  `HitPointsDamage` varchar(100) DEFAULT NULL,
-  `active` tinyint(3) DEFAULT '1',
-  `assurance` int(3) DEFAULT '0',
-  `POS_x` int(50) DEFAULT NULL,
-  `POS_y` int(50) DEFAULT NULL,
-  `POS_z` int(50) DEFAULT NULL,
-  `POS_direction` int(50) DEFAULT NULL,
-  `fuel` int(50) DEFAULT NULL,
-  `fuel_type` varchar(50) DEFAULT NULL,
-  `POS_store_x` int(50) DEFAULT '0',
-  `POS_store_y` int(50) DEFAULT '0',
-  `POS_store_z` int(50) DEFAULT '0',
-  `occuped` int(2) DEFAULT '0',
-  PRIMARY KEY (`pid`,`plate`)
+CREATE TABLE IF NOT EXISTS `vehicles` (
+  `plate` mediumint(6) unsigned NOT NULL COMMENT 'Unique ID',
+  `classname` varchar(50) NOT NULL COMMENT 'ArmA3 classname',
+  `pid` char(17) NOT NULL COMMENT 'PlayerUID',
+  `side` varchar(10) NOT NULL DEFAULT 'CIV' COMMENT 'ArmA3 side',
+  `type` varchar(50) NOT NULL DEFAULT 'CAR' COMMENT 'Subtype',
+  `inventory` text NOT NULL COMMENT 'Array',
+  `displayname` varchar(50) NOT NULL DEFAULT '' COMMENT 'Display name in garage. Can be changed by user',
+  `HitPointsDamage` text NOT NULL COMMENT 'Array',
+  `active` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean | 0 : stored | 1 : out of garage',
+  `assurance` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
+  `fuel` tinyint(3) unsigned NOT NULL DEFAULT '100' COMMENT 'Range [0-100(%)]',
+  `fuel_type` varchar(20) NOT NULL DEFAULT '' COMMENT 'Current fuel type in tank. (only stored if not default vehicle''s fuel)',
+  `POS_store_x` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_store_y` float DEFAULT '0' COMMENT 'Position ATL',
+  `POS_store_z` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_x` float unsigned NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_y` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_z` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
+  `POS_direction` smallint(3) unsigned NOT NULL DEFAULT '0' COMMENT 'Range [0-360(°)]',
+  `occuped` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean | 0 : free to use | 1 : cannot be accessed',
+  PRIMARY KEY (`plate`),
+  KEY `pid` (`pid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of vehicles
--- ----------------------------
+-- Export de données de la table tanoa.vehicles : ~0 rows (environ)
+DELETE FROM `vehicles`;
+/*!40000 ALTER TABLE `vehicles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `vehicles` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
