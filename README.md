@@ -1,9 +1,9 @@
 # Framework_Tanoa_Life
 This framework is a total modification for ArmA3 game.
 
-Merged from :
 ## What is this repository ?
 It's a **merged** version more developer friendly
+
 Originals :
 - https://github.com/Lyeed/Life-Server
 - https://github.com/Lyeed/Tanoa-Life
