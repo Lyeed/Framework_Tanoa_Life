@@ -16,7 +16,7 @@ Don't forget to configure ExtDB2 ini file
 ## Requirements
 1. extDB2 - https://github.com/AsYetUntitled/extDB2
 2. extLOG - https://github.com/Torndeco/extLOG
-3. Mods pack - Link incoming
+3. Mods pack - https://mega.nz/#!GEkACATR!iDuiZAuI2xuLEIZHk32F4YGHw9neC5gBjjClZFPUHq8
 
 ## Author
 * **Lyeed** - [Lyeed](https://github.com/Lyeed)
