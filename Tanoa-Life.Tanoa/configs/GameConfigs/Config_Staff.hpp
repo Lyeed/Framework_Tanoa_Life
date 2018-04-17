@@ -268,7 +268,7 @@ class ALYSIA_STAFF
 				name="Supprimer accréditation rebelle";
 				statement="[(call compile (lbData[9000,lbCurSel 9000])), 0, player] remoteExecCall ['AlysiaServer_fnc_whitelistRebels', 2];";
 				condition="((side (call compile (lbData[9000,lbCurSel 9000]))) isEqualTo civilian) && (((call compile (lbData[9000,lbCurSel 9000])) getVariable ['rank', 0]) > 0)";
-				allow[]={"76561197990980502","76561198089742613"};
+				allow[]={"XXXXXXXXXXXXXXXXXX"};
 			};
 			class accred_reb_first: accred_reb_remove
 			{
