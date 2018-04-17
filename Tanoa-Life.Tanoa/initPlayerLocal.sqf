@@ -37,7 +37,7 @@ if (hasInterface) then
 
 	diag_log "<INIT> Vérification des mods...";
 	_check = "";
-	("initLayer" call BIS_fnc_rscLayer) cutText ["Vérification de la présence des mods @Alysia", "BLACK FADED", 999999, true];
+	("initLayer" call BIS_fnc_rscLayer) cutText ["Vérification de la présence des mods", "BLACK FADED", 999999, true];
 	{
 		if (!(isClass(configFile >> "CfgPatches" >> _x))) exitWith {_check = _x};
 	} forEach gServer_mods;
@@ -83,9 +83,9 @@ if (hasInterface) then
 		waitUntil {(call TFAR_fnc_isTeamSpeakPluginEnabled)};
 		diag_log "<INIT> Plugin Teamspeak TaskForceRadio validé";
 
-		diag_log "<INIT> Validation de présence sur le Teamspeak Alysia...";
-		("initLayer" call BIS_fnc_rscLayer) cutText ["Validation de présence sur le Teamspeak AlysiaRP", "BLACK FADED", 999999, true];
-		waitUntil {(["Alysia", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)};
+		diag_log "<INIT> Validation de présence sur le Teamspeak ...";
+		("initLayer" call BIS_fnc_rscLayer) cutText ["Validation de présence sur le Teamspeak", "BLACK FADED", 999999, true];
+		waitUntil {(["YOUR TEAMSPEAK NAME", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)};
 		diag_log "<INIT> Présence validé";
 
 		diag_log "<INIT> En attente de validation de votre présence dans le channel TaskForceRadio...";

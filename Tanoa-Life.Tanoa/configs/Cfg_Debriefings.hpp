@@ -14,7 +14,7 @@ class CfgDebriefing
 	};
 	class Bye
 	{
-		title="Alysia";
+		title="Aurevoir";
 		description="À bientôt !";
 		pictureColor[]={0,0.3,0.6,1};
 	};
