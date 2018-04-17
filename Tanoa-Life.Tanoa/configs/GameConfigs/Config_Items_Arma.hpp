@@ -48,7 +48,7 @@ class ALYSIA_ITEMS_ARMA
 	{
 		buy_license_CIV[]={"gun","politique_pnt_member"};
 	};
-	
+
 	class hgun_Pistol_01_F
 	{
 		buy_license_CIV[]={"gun","politique_pnt_member"};
@@ -114,7 +114,7 @@ class ALYSIA_ITEMS_ARMA
 	class rds_uniform_Woodlander3: TRYK_shirts_DENIM_WHB_Sleeve {};
 	class rds_uniform_schoolteacher: TRYK_shirts_DENIM_WHB_Sleeve {};
 	class rds_uniform_Woodlander4: TRYK_shirts_DENIM_WHB_Sleeve {};
-	
+
 	class rds_uniform_citizen1
 	{
 		buy_price=80;
@@ -137,7 +137,7 @@ class ALYSIA_ITEMS_ARMA
 	class Skyline_Uniforme_Hello_Kitty_01_F: U_BG_Guerilla2_1 {};
 	class Skyline_Uniforme_Bob_01_F: U_BG_Guerilla2_1 {};
 	class Skyline_Uniforme_Patrick_01_F: U_BG_Guerilla2_1 {};
-	
+
 	class U_C_HunterBody_grn: U_BG_Guerilla2_1 {};
 	class U_C_Journalist: U_BG_Guerilla2_1 {};
 
@@ -479,7 +479,7 @@ class ALYSIA_ITEMS_ARMA
 	class TRYK_B_Coyotebackpack_OD: TRYK_B_Coyotebackpack {};
 	class TRYK_B_Coyotebackpack_WH: TRYK_B_Coyotebackpack {};
 	class Skyline_Backpack_Chasse_01_F: TRYK_B_Coyotebackpack {};
-	class Skyline_Backpack_Chasse_Radio_01_F: TRYK_B_Coyotebackpack 
+	class Skyline_Backpack_Chasse_Radio_01_F: TRYK_B_Coyotebackpack
 	{
 		buy_price=16150;
 	};
@@ -590,11 +590,11 @@ class ALYSIA_ITEMS_ARMA
 	class H_RacingHelmet_1_F: Casque_Moto {};
 	class H_RacingHelmet_2_F: Casque_Moto {};
 	class H_RacingHelmet_3_F: Casque_Moto {};
-	
+
 	///////////////////////////////// GOGGLES /////////////////////////////////
 	class EWK_Cig1
 	{
-		
+
 	};
 	class EWK_Cig2: EWK_Cig1 {};
 	class EWK_Cig3: EWK_Cig1 {};
@@ -658,7 +658,7 @@ class ALYSIA_ITEMS_ARMA
 	class V_BandollierB_blk: V_BandollierB_cbr {};
 	class V_BandollierB_oli: V_BandollierB_cbr {};
 	class V_BandollierB_rgr: V_BandollierB_cbr {};
-	
+
 	class V_Rangemaster_belt
 	{
 		buy_price=1850;
@@ -666,9 +666,9 @@ class ALYSIA_ITEMS_ARMA
 
 	class Alysia_Saccoche_Civ
 	{
-		buy_price=2025;	
+		buy_price=2025;
 	};
-	
+
 	class Alysia_PistolHolder_Civ
 	{
 		buy_price=1275;
@@ -1008,7 +1008,6 @@ class ALYSIA_ITEMS_ARMA
 	{
 		buy_price=1100;
 	};
-	class TRYK_B_Medbag_BK: TRYK_B_Medbag {};
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////     Garde de Malieu     ////////////////////////////////////////////////////////////
@@ -1040,12 +1039,6 @@ class ALYSIA_ITEMS_ARMA
 		buy_condition_WEST=6;
 	};
 	class Alysia_Uniform_West_Commissaire_01: Alysia_Uniform_West_Commissaire_02 {};
-	
-	class Alysia_Radio_LR_West
-	{
-		buy_price=7985;
-		buy_condition_WEST=1;
-	};
 
 	class Alysia_Identity_West
 	{
@@ -1059,7 +1052,7 @@ class ALYSIA_ITEMS_ARMA
 		buy_condition_WEST=1;
 	};
 	class Alysia_Vest_West_02: Alysia_Vest_West_01 {};
-	
+
 	class Alysia_Casque_West_01
 	{
 		buy_price=1200;
@@ -1124,7 +1117,7 @@ class ALYSIA_ITEMS_ARMA
 	//////////////////////////////////////////////////     Armée Nationale Tanocienne     //////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
+
 	class Alysia_Identity_East
 	{
 		buy_price=50;
@@ -1274,7 +1267,7 @@ class ALYSIA_ITEMS_ARMA
 	};
 	class Alysia_Uniform_East_major_Camo2: Alysia_Uniform_East_major_Camo {};
 	class Alysia_Uniform_East_major_Parade: Alysia_Uniform_East_major_Camo {};
-	
+
 	class Alysia_Uniform_East_adjudant_Camo: Alysia_Uniform_East_colonel_Camo
 	{
 		buy_condition_EAST=6;
@@ -1540,7 +1533,7 @@ class ALYSIA_ITEMS_ARMA
 	class Kio_Santa_Hat: Kio_Capital_Hat {};
 	class Kio_Spinning_Hat: Kio_Capital_Hat {};
 	class Kio_Afro_Hat: Kio_Capital_Hat {};
-	
+
 	class Masque_Alien1
 	{
 		buy_price=500;
@@ -1585,7 +1578,7 @@ class ALYSIA_ITEMS_ARMA
 	class Skyline_Hoxton: Masque_Alien1 {};
 	class Skyline_Skyrim: Masque_Alien1 {};
 	class Skyline_Wolf: Masque_Alien1 {};
-	
+
 	class Skyline_Character_U_SecouristeA_01_F
 	{
 		buy_price=120;
@@ -1664,7 +1657,7 @@ class ALYSIA_ITEMS_ARMA
 	class Skyline_Character_U_CivilE_05_F : Skyline_Character_U_CivilE_01_F{};
 	class Skyline_Character_U_CivilE_06_F : Skyline_Character_U_CivilE_01_F{};
 	class Skyline_Character_U_CivilE_07_F : Skyline_Character_U_CivilE_01_F{};
-	
+
 	class Skyline_HeadGear_Chapka_01_F
 	{
 		buy_price=82;

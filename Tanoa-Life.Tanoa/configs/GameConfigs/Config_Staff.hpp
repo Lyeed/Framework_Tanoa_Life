@@ -173,19 +173,19 @@ class ALYSIA_STAFF
 
 		class target
 		{
-			class goto
+			class tpto
 			{
 				name="TP à";
 				statement="(vehicle player) setPosATL (getPosATL (call compile (lbData[9000,lbCurSel 9000])));";
 				condition="(true)";
 				allow[]=ADMIN_AND_MODO;
 			};
-			class tphere: goto
+			class tphere: tpto
 			{
 				name="TP ici";
 				statement="(vehicle (call compile (lbData[9000,lbCurSel 9000]))) setPosATL (getPosATL player);";
 			};
-			class getInVeh: goto
+			class getInVeh: tpto
 			{
 				name="Entrer dans véhicule";
 				statement="player moveInCargo (vehicle (call compile (lbData[9000,lbCurSel 9000])))";
@@ -200,12 +200,12 @@ class ALYSIA_STAFF
 				allow[]=ADMIN_AND_MODO;
 			};
 
-			class heal: goto
+			class heal: tpto
 			{
 				name="Soin";
 				statement="[3999] remoteExecCall ['AlysiaClient_fnc_handleBlood',(call compile (lbData[9000,lbCurSel 9000]))]; (call compile (lbData[9000,lbCurSel 9000])) setVariable ['is_bleeding', false, true];";
 			};
-			class res: goto
+			class res: tpto
 			{
 				name="Rez";
 				statement="((call compile (lbData[9000,lbCurSel 9000])) setVariable ['is_bleeding',false,true]);((call compile (lbData[9000,lbCurSel 9000])) setVariable ['is_coma',false,true]);";

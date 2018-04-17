@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `companies` (
   PRIMARY KEY (`plate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.companies : ~1 rows (environ)
+-- Export de données de la table tanoa.companies : ~0 rows (environ)
 DELETE FROM `companies`;
 /*!40000 ALTER TABLE `companies` DISABLE KEYS */;
 /*!40000 ALTER TABLE `companies` ENABLE KEYS */;
@@ -198,10 +198,10 @@ CREATE TABLE IF NOT EXISTS `players` (
   `HEALTH_fatigue` double unsigned NOT NULL DEFAULT '0' COMMENT 'Range [0-1]',
   `HEALTH_alcool` smallint(5) unsigned NOT NULL DEFAULT '0',
   `HEALTH_hurt` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Boolean',
-  `WEST_level` varchar(2) NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
-  `GUER_level` varchar(2) NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
-  `EAST_level` varchar(2) NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
-  `CIV_level` varchar(2) NOT NULL DEFAULT '1' COMMENT 'Faction rank (see Faction config to define ranks)',
+  `WEST_level` enum('0','1','2','3','4','5','6','7') NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
+  `GUER_level` enum('0','1','2','3','4','5','6','7') NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
+  `EAST_level` enum('0','1','2','3','4','5','6','7','8','9','10','11','12') NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
+  `CIV_level` enum('0','1','2') NOT NULL DEFAULT '0' COMMENT 'Faction rank (see Faction config to define ranks)',
   `JAIL_prison` varchar(2) NOT NULL DEFAULT '',
   `JAIL_cell` varchar(50) NOT NULL DEFAULT '',
   `JAIL_time` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Minuts',
@@ -270,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `serverinfo` (
   `minute` tinyint(2) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table tanoa.serverinfo : ~1 rows (environ)
+-- Export de données de la table tanoa.serverinfo : ~0 rows (environ)
 DELETE FROM `serverinfo`;
 /*!40000 ALTER TABLE `serverinfo` DISABLE KEYS */;
 INSERT INTO `serverinfo` (`year`, `month`, `day`, `hour`, `minute`) VALUES

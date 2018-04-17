@@ -120,7 +120,7 @@ publicVariable "gServer_rebootHour_txt";
 gServer_mods = [];
 {
 	_pbo = configName _x;
-	if (!(_pbo in ["Tanoa-Server","asm"])) then {
+	if (!(_pbo in ["TanoaServer","asm"])) then {
 		gServer_mods pushBack _pbo;
 	};
 } forEach ("true" configClasses (configFile >> "CfgPatches"));
