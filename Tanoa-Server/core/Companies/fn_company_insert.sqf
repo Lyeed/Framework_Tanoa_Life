@@ -18,7 +18,7 @@ _plate = str(round(random(999999)));
 [
 	format
 	[
-		"INSERT INTO companies (name,owner,type,plate,POS_x,POS_y,POS_z,POS_direction,members,CONSTRUCTION_require,INV_virtual,INV_arma,bank_history) VALUES ('%1','%2','%3','%4','%5','%6','%7','%8','""[[],[]]""','%9','""[]""','""[[],[],[],[]]""','""[]""')",
+		"INSERT INTO companies (name,owner,type,plate,POS_x,POS_y,POS_z,POS_direction,members,CONSTRUCTION_require,INV_virtual,INV_arma) VALUES ('%1','%2','%3','%4','%5','%6','%7','%8','""[[],[]]""','%9','""[]""','""[[],[],[],[]]""')",
 		_name,
 		getPlayerUID _owner,
 		_type,
