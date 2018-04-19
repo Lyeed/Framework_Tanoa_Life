@@ -22,13 +22,22 @@ Don't forget to configure ExtDB2 ini file
 1. Server configuration [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Server/configs/Config_Server.hpp)
 2. Staff members [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/configs/GameConfigs/Config_Staff.hpp)
 3. TaskForceRadio server informations [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/initPlayerLocal.sqf)
-    - Line 88 : Remplace YOUR TEAMSPEAK NAME by your Teamspeak's name
+	- Line 88 : Remplace YOUR TEAMSPEAK NAME by your Teamspeak's name
     
-    **Exemple :**
-    ``
+	**Exemple :**
+	``
 		waitUntil {(["Lyeed Tanoa Life Teamspeak", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)};
-    ``
-    - Line 93 : Your channel name. Default : TaskForceRadio
+	``
+	- Line 93 : Your channel name. Default : TaskForceRadio
+4. Server Addons Configurations [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Server/fn_initServer.sqf)
+	- Line 123 : Add in the array your server's addons cfgpatches 
+	
+	**Exemple :**
+	``
+		if (!(_pbo in ["TanoaServer","asm","myNewAddon"])) then {
+	``
+	
+	:warning: You must add the addon's cfgpatch and not the addon's folder name. Check out this information in your addon's config file
 
 ## Author
 * **Lyeed** - [Lyeed](https://github.com/Lyeed)
