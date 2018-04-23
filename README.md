@@ -43,7 +43,7 @@ Don't forget to configure ExtDB2 ini file
 * **Lyeed** - [Lyeed](https://github.com/Lyeed)
 
 ## License
-Read [LICENSE.md](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/README.md)
+Read [LICENSE.md](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/LICENSE.md)
 
 ## Bugs report
 Please open an issue for any encountered bug, I will do my best to correct it.
