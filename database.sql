@@ -39,7 +39,6 @@ CREATE TABLE IF NOT EXISTS `companies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.companies : ~0 rows (environ)
-DELETE FROM `companies`;
 /*!40000 ALTER TABLE `companies` DISABLE KEYS */;
 /*!40000 ALTER TABLE `companies` ENABLE KEYS */;
 
@@ -56,7 +55,6 @@ CREATE TABLE IF NOT EXISTS `companies_bank_transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.companies_bank_transactions : ~0 rows (environ)
-DELETE FROM `companies_bank_transactions`;
 /*!40000 ALTER TABLE `companies_bank_transactions` DISABLE KEYS */;
 /*!40000 ALTER TABLE `companies_bank_transactions` ENABLE KEYS */;
 
@@ -71,7 +69,6 @@ CREATE TABLE IF NOT EXISTS `dynamic_markers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.dynamic_markers : ~0 rows (environ)
-DELETE FROM `dynamic_markers`;
 /*!40000 ALTER TABLE `dynamic_markers` DISABLE KEYS */;
 /*!40000 ALTER TABLE `dynamic_markers` ENABLE KEYS */;
 
@@ -85,9 +82,8 @@ CREATE TABLE IF NOT EXISTS `factions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.factions : ~4 rows (environ)
-DELETE FROM `factions`;
 /*!40000 ALTER TABLE `factions` DISABLE KEYS */;
-INSERT INTO `factions` (`name`, `bank`, `history`) VALUES
+INSERT IGNORE INTO `factions` (`name`, `bank`, `history`) VALUES
 	('CIV', 0, '"[]"'),
 	('EAST', 0, '"[]"'),
 	('GUER', 0, '"[]"'),
@@ -110,7 +106,6 @@ CREATE TABLE IF NOT EXISTS `houses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.houses : ~0 rows (environ)
-DELETE FROM `houses`;
 /*!40000 ALTER TABLE `houses` DISABLE KEYS */;
 /*!40000 ALTER TABLE `houses` ENABLE KEYS */;
 
@@ -132,7 +127,6 @@ CREATE TABLE IF NOT EXISTS `labo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.labo : ~0 rows (environ)
-DELETE FROM `labo`;
 /*!40000 ALTER TABLE `labo` DISABLE KEYS */;
 /*!40000 ALTER TABLE `labo` ENABLE KEYS */;
 
@@ -147,7 +141,6 @@ CREATE TABLE IF NOT EXISTS `land_atms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.land_atms : ~0 rows (environ)
-DELETE FROM `land_atms`;
 /*!40000 ALTER TABLE `land_atms` DISABLE KEYS */;
 /*!40000 ALTER TABLE `land_atms` ENABLE KEYS */;
 
@@ -167,7 +160,6 @@ CREATE TABLE IF NOT EXISTS `land_fuels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.land_fuels : ~0 rows (environ)
-DELETE FROM `land_fuels`;
 /*!40000 ALTER TABLE `land_fuels` DISABLE KEYS */;
 /*!40000 ALTER TABLE `land_fuels` ENABLE KEYS */;
 
@@ -243,7 +235,6 @@ CREATE TABLE IF NOT EXISTS `players` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.players : ~0 rows (environ)
-DELETE FROM `players`;
 /*!40000 ALTER TABLE `players` DISABLE KEYS */;
 /*!40000 ALTER TABLE `players` ENABLE KEYS */;
 
@@ -256,43 +247,42 @@ CREATE TABLE IF NOT EXISTS `ressources` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.ressources : ~0 rows (environ)
-DELETE FROM `ressources`;
 /*!40000 ALTER TABLE `ressources` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ressources` ENABLE KEYS */;
 
 -- Export de la structure de la table tanoa. serverinfo
 DROP TABLE IF EXISTS `serverinfo`;
 CREATE TABLE IF NOT EXISTS `serverinfo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `year` smallint(4) unsigned NOT NULL DEFAULT '2000',
   `month` tinyint(2) unsigned NOT NULL DEFAULT '12',
   `day` tinyint(2) unsigned NOT NULL DEFAULT '1',
   `hour` tinyint(2) unsigned NOT NULL DEFAULT '12',
-  `minute` tinyint(2) unsigned NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `minute` tinyint(2) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.serverinfo : ~0 rows (environ)
-DELETE FROM `serverinfo`;
 /*!40000 ALTER TABLE `serverinfo` DISABLE KEYS */;
-INSERT INTO `serverinfo` (`year`, `month`, `day`, `hour`, `minute`) VALUES
-	(2030, 10, 24, 12, 0);
+INSERT IGNORE INTO `serverinfo` (`id`, `year`, `month`, `day`, `hour`, `minute`) VALUES
+	(1, 2030, 10, 24, 12, 0);
 /*!40000 ALTER TABLE `serverinfo` ENABLE KEYS */;
 
 -- Export de la structure de la table tanoa. taxes
 DROP TABLE IF EXISTS `taxes`;
 CREATE TABLE IF NOT EXISTS `taxes` (
   `variable` varchar(50) NOT NULL,
-  `value` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT 'Factor/Coef (Range [0-1])',
+  `value` double unsigned NOT NULL DEFAULT '1' COMMENT 'Factor/Coef (Range [0-1])',
   PRIMARY KEY (`variable`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.taxes : ~4 rows (environ)
-DELETE FROM `taxes`;
 /*!40000 ALTER TABLE `taxes` DISABLE KEYS */;
-INSERT INTO `taxes` (`variable`, `value`) VALUES
-	('gServer_tax_companies_building_multiplier', 1),
-	('gServer_tax_companies_employee_multiplier', 1),
-	('gServer_tax_house_multiplier', 1),
-	('gServer_tax_salary_multiplier', 1);
+INSERT IGNORE INTO `taxes` (`variable`, `value`) VALUES
+	('gServer_tax_companies_building_multiplier', 0.2),
+	('gServer_tax_companies_employee_multiplier', 0.4),
+	('gServer_tax_house_multiplier', 0.2),
+	('gServer_tax_salary_multiplier', 0.2);
 /*!40000 ALTER TABLE `taxes` ENABLE KEYS */;
 
 -- Export de la structure de la table tanoa. vehicles
@@ -323,7 +313,6 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Export de données de la table tanoa.vehicles : ~0 rows (environ)
-DELETE FROM `vehicles`;
 /*!40000 ALTER TABLE `vehicles` DISABLE KEYS */;
 /*!40000 ALTER TABLE `vehicles` ENABLE KEYS */;
 

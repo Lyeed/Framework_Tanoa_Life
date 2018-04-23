@@ -15,7 +15,6 @@ _key = "extDB2" callExtension format["%1:%2:%3",_mode, (call extDB_SQL_CUSTOM_ID
 if (_mode isEqualTo 1) exitWith {true};
 
 _key = (call compile format["%1",_key]) select 1;
-
 uisleep (random .03);
 
 _queryResult = "";
