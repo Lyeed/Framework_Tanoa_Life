@@ -9,10 +9,19 @@ Originals :
 - https://github.com/Lyeed/Tanoa-Life
 
 ## Database
-Execute database.sql file on your database.
+- Execute the script database.sql on your database.
+- Modify Extdb config file :
 
-Don't forget to configure ExtDB2 ini file
+		[tanoa]
+		Type = MySQL
+		Name = tanoa
 
+		Username = ********
+		Password = ********
+
+		IP = 127.0.0.1
+		Port = 3306
+	
 ## Requirements
 - extDB2 - https://github.com/AsYetUntitled/extDB2
 - extLOG - https://github.com/Torndeco/extLOG
