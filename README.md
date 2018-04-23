@@ -42,6 +42,12 @@ Don't forget to configure ExtDB2 ini file
 ## Author
 * **Lyeed** - [Lyeed](https://github.com/Lyeed)
 
+## License
+Read [LICENSE.md](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/README.md)
+
+## Bugs report
+Please open an issue for any encountered bug, I will do my best to correct it.
+
 ## Pictures
 ![Tablet](https://cdn.discordapp.com/attachments/434398524269002784/435855164650553354/20180415121249_1.jpg)
 ![Tablet](https://cdn.discordapp.com/attachments/434398524269002784/435855519756845056/20180417193330_1.jpg)
