@@ -58,6 +58,13 @@ Read [LICENSE.md](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/LICE
 Please open an issue for any encountered bug, I will do my best to correct it.
 
 ## Pictures
-![Tablet](https://cdn.discordapp.com/attachments/434398524269002784/435855164650553354/20180415121249_1.jpg)
+![Tablet_1](https://cdn.discordapp.com/attachments/434398524269002784/435855164650553354/20180415121249_1.jpg)
+![Tablet_2](https://i.imgur.com/2AVLsTF.jpg)
 ![Tablet](https://cdn.discordapp.com/attachments/434398524269002784/435855519756845056/20180417193330_1.jpg)
 ![Welcome](https://images-ext-2.discordapp.net/external/4BJgWyhu8Q1qYlNMlNiYtaZqZrPVWzWMh2Mcby_uPJw/https/i.imgur.com/dOSvgx5h.jpg)
+![Compagny](https://i.imgur.com/k6WJiCI.jpg)
+![Death](https://i.imgur.com/gNo7n4J.jpg)
+![Stock](https://i.imgur.com/yYMOMdr.jpg)
+![Military](https://i.imgur.com/ylNlNsn.jpg)
+![Massage](https://i.imgur.com/0qUKHuG.jpg)
+![Inventory](https://i.imgur.com/K40l9p3.jpg)
