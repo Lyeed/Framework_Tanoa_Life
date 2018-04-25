@@ -8,6 +8,18 @@ Originals :
 - https://github.com/Lyeed/Life-Server
 - https://github.com/Lyeed/Tanoa-Life
 
+## Requirements
+
+### Mandatory
+- [extDB2](https://github.com/AsYetUntitled/extDB2)
+- [extLOG](https://github.com/Torndeco/extLOG)
+- [Framework's Arma 3 Addons](https://mega.nz/#!GEkACATR!iDuiZAuI2xuLEIZHk32F4YGHw9neC5gBjjClZFPUHq8)
+
+### Usefull links
+- Database : [MySQL Server](https://dev.mysql.com/downloads/mysql)
+- SQL Administration Tool : [HeidiSQL](https://www.heidisql.com/download.php)
+- Text Editor : [Sublime Text 3](https://www.sublimetext.com/3)
+
 ## Database
 - Execute the script database.sql on your database.
 - Modify Extdb config file :
@@ -22,10 +34,6 @@ Originals :
 		IP = 127.0.0.1
 		Port = 3306
 	
-## Requirements
-- extDB2 - https://github.com/AsYetUntitled/extDB2
-- extLOG - https://github.com/Torndeco/extLOG
-- Mods pack - https://mega.nz/#!GEkACATR!iDuiZAuI2xuLEIZHk32F4YGHw9neC5gBjjClZFPUHq8
 
 ## Importants files to modify
 1. Server configuration [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Server/configs/Config_Server.hpp)
