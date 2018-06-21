@@ -10,6 +10,7 @@ Originals :
 
 ## Requirements
 
+
 ### Mandatory
 - [extDB2](https://github.com/AsYetUntitled/extDB2)
 - [extLOG](https://github.com/Torndeco/extLOG)
@@ -38,17 +39,33 @@ Originals :
 ## Importants files to modify
 1. Server configuration [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Server/configs/Config_Server.hpp)
 2. Staff members [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/configs/GameConfigs/Config_Staff.hpp)
-3. TaskForceRadio server informations [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/initPlayerLocal.sqf)
-	- Line 88 : Remplace YOUR TEAMSPEAK NAME by your Teamspeak's name
-    
-	**Exemple :**
-	``
-		waitUntil {(["Lyeed Tanoa Life Teamspeak", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)};
-	``
-	- Line 93 : Your channel name. Default : TaskForceRadio
-4. Server Addons Configurations [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Server/fn_initServer.sqf)
-	- Line 123 : Add in the array your server's addons cfgpatches 
+3. TaskForceRadio informations
+	- initPlayerLocal.sqf [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/initPlayerLocal.sqf)
 	
+		- Line 88 : Remplace [YOUR TEAMSPEAK NAME] by your Teamspeak's name.            
+		**Exemple :**
+		``
+			waitUntil {(["Lyeed Tanoa Life Teamspeak", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)};
+		``
+
+		- Line 93 : Your channel name. Default : TaskForceRadio
+	
+	- fn_init_loops.sqf [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/core/Inits/fn_init_loops.sqf)
+
+		- Line 140 : Specify all channels that players are allowed to visit while connected.       
+		**Exemple :**
+		``
+			if (!((call TFAR_fnc_getTeamSpeakChannelName) in ["TaskForceRadio", "MyNewChannel"])) then
+		``
+
+		- Line 152 : Remplace [YOUR TEAMSPEAK NAME] by your Teamspeak's name.            
+		**Exemple :**
+		``
+			if (!(["Lyeed Tanoa Life Teamspeak", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)) then
+		``
+
+4. Server Addons Configurations [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Server/fn_initServer.sqf)
+	- Line 123 : Add in the array your server's addons CfgPatches.   
 	**Exemple :**
 	``
 		if (!(_pbo in ["TanoaServer","asm","myNewAddon"])) then {

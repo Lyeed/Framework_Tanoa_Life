@@ -137,7 +137,7 @@
 			"Vous serez expulsé du jeu dans <t color='#01DF01'>45 secondes</t> si vous n'y retournez pas."
 		] call AlysiaClient_fnc_error;
 		uiSleep 45;
-		if (!((call TFAR_fnc_getTeamSpeakChannelName) in ["TaskForceRadio", "Questions diverses", "Problèmes installations", "Bugs en jeu", "Problèmes de roleplay", "Bureau des supports", "Bureau de la modération"])) then
+		if (!((call TFAR_fnc_getTeamSpeakChannelName) in ["TaskForceRadio"])) then
 		{
 			[] call AlysiaDB_fnc_query_update_disconnect;
 			uiSleep 2;
@@ -149,7 +149,7 @@
 	{
 		["Vous n'êtes pas connecté sur le Teamspeak du serveur. Vous allez être expulsé dans 45 secondes."] call AlysiaClient_fnc_error;
 		uiSleep 45;
-		if (!(["Alysia", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)) then
+		if (!(["YOUR TEAMSPEAK NAME", call TFAR_fnc_getTeamSpeakServerName] call BIS_fnc_inString)) then
 		{
 			[] call AlysiaDB_fnc_query_update_disconnect;
 			uiSleep 2;
