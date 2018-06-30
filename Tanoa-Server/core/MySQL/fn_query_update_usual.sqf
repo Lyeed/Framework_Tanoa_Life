@@ -24,7 +24,7 @@ if (_uid isEqualTo "") exitWith {};
 		([[_this, 11, [], [[]]] call BIS_fnc_param] call AlysiaServer_fnc_mresArray),
 		_uid
 	], 1
-] call EXTDB2_fnc_async;
+] call ExtDB3_fnc_async;
 
 if (player getVariable ["arrested", false]) then
 {

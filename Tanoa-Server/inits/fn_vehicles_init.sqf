@@ -5,7 +5,7 @@
 
 diag_log "[VEHICLES] Loading";
 
-["DELETE vehicles.* FROM vehicles INNER JOIN players ON vehicles.pid=players.uid WHERE DATEDIFF(NOW(),players.STATS_last_update)>31", 1] call EXTDB2_fnc_async;
+["DELETE vehicles.* FROM vehicles INNER JOIN players ON vehicles.pid=players.uid WHERE DATEDIFF(NOW(),players.STATS_last_update)>31", 1] call ExtDB3_fnc_async;
 uiSleep 1;
 
 {
@@ -15,7 +15,7 @@ uiSleep 1;
 	if (_position isEqualTo [0,0,0]) then
 	{
 		diag_log "[ERROR] Cannot spawn : no position";
-		[format["UPDATE vehicles SET active='0',POS_store_x='0',POS_store_y='0',POS_store_z='0' WHERE plate='%1'", (_x select 4)], 1] call EXTDB2_fnc_async;
+		[format["UPDATE vehicles SET active='0',POS_store_x='0',POS_store_y='0',POS_store_z='0' WHERE plate='%1'", (_x select 4)], 1] call ExtDB3_fnc_async;
 	} else {
 		_vehicle = createVehicle [(_x select 2), [0, 0, 0], [], 0, "NONE"];
 		waitUntil {!(isNull _vehicle)};
@@ -69,7 +69,7 @@ uiSleep 1;
 
 		_vehicle allowDamage true;
 	};
-} forEach ((["SELECT vehicles.HitPointsDamage,vehicles.side,vehicles.classname,vehicles.pid,vehicles.plate,vehicles.POS_x,vehicles.POS_y,vehicles.POS_z,vehicles.POS_direction,players.profileName,vehicles.assurance,vehicles.fuel,vehicles.inventory,vehicles.fuel_type FROM vehicles INNER JOIN players ON vehicles.pid=players.uid WHERE active='1'", 2] call EXTDB2_fnc_async));
+} forEach ((["SELECT vehicles.HitPointsDamage,vehicles.side,vehicles.classname,vehicles.pid,vehicles.plate,vehicles.POS_x,vehicles.POS_y,vehicles.POS_z,vehicles.POS_direction,players.profileName,vehicles.assurance,vehicles.fuel,vehicles.inventory,vehicles.fuel_type FROM vehicles INNER JOIN players ON vehicles.pid=players.uid WHERE active='1'", 2] call ExtDB3_fnc_async));
 
 diag_log "[VEHICLES] Ready";
 

@@ -1,12 +1,12 @@
 class CfgFunctions
 {
 
-	class EXTDB2
+	class ServerDB
 	{
-		tag = "EXTDB2";
+		tag = "EXTDB3";
 		class Functions
 		{
-			file = "Tanoa-Server\extDB2";
+			file = "Tanoa-Server\extDB3";
 			class async {};
 			class init {};
 		};

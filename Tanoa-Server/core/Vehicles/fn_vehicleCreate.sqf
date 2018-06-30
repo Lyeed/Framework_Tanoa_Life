@@ -48,4 +48,4 @@ if (isNull _vehicle) then
 		_active,
 		_insurance
 	], 1
-] call EXTDB2_fnc_async;
+] call ExtDB3_fnc_async;

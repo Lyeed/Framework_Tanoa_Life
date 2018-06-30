@@ -84,10 +84,10 @@ _uid = getPlayerUID _player;
 _side = side _player;
 _queryResult = switch (_side) do
 {
-	case civilian: {[format["SELECT %1 %2 FROM players WHERE uid='%3'", BASE_REQUEST, CIV_REQUEST, _uid], 2] call EXTDB2_fnc_async};
-	case east: {[format["SELECT %1 %2 FROM players WHERE uid='%3'", BASE_REQUEST, EAST_REQUEST, _uid], 2] call EXTDB2_fnc_async};
-	case independent: {[format["SELECT %1 %2 FROM players WHERE uid='%3'", BASE_REQUEST, GUER_REQUEST, _uid], 2] call EXTDB2_fnc_async};
-	case west: {[format["SELECT %1 %2 FROM players WHERE uid='%3'", BASE_REQUEST, WEST_REQUEST, _uid], 2] call EXTDB2_fnc_async};
+	case civilian: {[format["SELECT %1 %2 FROM players WHERE uid='%3'", BASE_REQUEST, CIV_REQUEST, _uid], 2] call ExtDB3_fnc_async};
+	case east: {[format["SELECT %1 %2 FROM players WHERE uid='%3'", BASE_REQUEST, EAST_REQUEST, _uid], 2] call ExtDB3_fnc_async};
+	case independent: {[format["SELECT %1 %2 FROM players WHERE uid='%3'", BASE_REQUEST, GUER_REQUEST, _uid], 2] call ExtDB3_fnc_async};
+	case west: {[format["SELECT %1 %2 FROM players WHERE uid='%3'", BASE_REQUEST, WEST_REQUEST, _uid], 2] call ExtDB3_fnc_async};
 };
 
 if (_queryResult isEqualTo []) exitWith {

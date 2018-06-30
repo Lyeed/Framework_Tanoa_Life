@@ -21,7 +21,7 @@ diag_log "[LABORATORIES] Saving laboratories ...";
 					(_info select 0),
 					[(_x getVariable ["laboratory_inv_virtual", []])] call AlysiaServer_fnc_mresArray
 				], 1
-			] call EXTDB2_fnc_async;
+			] call ExtDB3_fnc_async;
 		};
 	};
 } forEach gServer_laboratories;

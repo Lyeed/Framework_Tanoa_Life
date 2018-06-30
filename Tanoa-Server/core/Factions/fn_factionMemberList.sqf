@@ -9,9 +9,9 @@ if (isNull _player) exitWith {};
 
 _list = switch (side _player) do
 {
-	case east: {["SELECT EAST_level, profileName, uid FROM players WHERE EAST_level>'0' ORDER BY EAST_level DESC", 2] call EXTDB2_fnc_async};
-	case west: {["SELECT WEST_level, profileName, uid FROM players WHERE WEST_level>'0' ORDER BY WEST_level DESC", 2] call EXTDB2_fnc_async};
-	case independent: {["SELECT GUER_level, profileName, uid FROM players WHERE GUER_level>'0' ORDER BY GUER_level DESC", 2] call EXTDB2_fnc_async};
+	case east: {["SELECT EAST_level, profileName, uid FROM players WHERE EAST_level>'0' ORDER BY EAST_level DESC", 2] call ExtDB3_fnc_async};
+	case west: {["SELECT WEST_level, profileName, uid FROM players WHERE WEST_level>'0' ORDER BY WEST_level DESC", 2] call ExtDB3_fnc_async};
+	case independent: {["SELECT GUER_level, profileName, uid FROM players WHERE GUER_level>'0' ORDER BY GUER_level DESC", 2] call ExtDB3_fnc_async};
 };
 if (isNil "_list") exitWith {};
 

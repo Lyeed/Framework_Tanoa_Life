@@ -5,7 +5,7 @@
 
 diag_log "[ATM] Saving ...";
 
-["DELETE FROM land_atms", 1] call EXTDB2_fnc_async;
+["DELETE FROM land_atms", 1] call ExtDB3_fnc_async;
 
 uiSleep 1;
 
@@ -25,7 +25,7 @@ uiSleep 1;
 					(getPos _x) select 1,
 					(getPos _x) select 2
 				], 1
-			] call EXTDB2_fnc_async;
+			] call ExtDB3_fnc_async;
 		};
 	};
 } forEach (allMissionObjects "All");

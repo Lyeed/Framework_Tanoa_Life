@@ -77,7 +77,7 @@ gServer_fuelStations = [];
 			};
 		};
 	};
-} forEach (["SELECT type,POS_X,POS_Y,POS_Z,fuel_Diesel,fuel_SP95,fuel_SP98,fuel_Kerosene,fuel_GPL,fuel_BIO FROM land_fuels", 2] call EXTDB2_fnc_async);
+} forEach (["SELECT type,POS_X,POS_Y,POS_Z,fuel_Diesel,fuel_SP95,fuel_SP98,fuel_Kerosene,fuel_GPL,fuel_BIO FROM land_fuels", 2] call ExtDB3_fnc_async);
 /*
 	0 - type
 	1 - POS_X

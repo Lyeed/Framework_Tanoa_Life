@@ -20,7 +20,7 @@ diag_log "[ATM] Setup";
 		};
 	};
 	if (!(isNull _atm)) then {};
-} forEach (["SELECT type,POS_X,POS_Y,POS_Z,amount FROM land_atms", 2] call EXTDB2_fnc_async);
+} forEach (["SELECT type,POS_X,POS_Y,POS_Z,amount FROM land_atms", 2] call ExtDB3_fnc_async);
 /*
 	0 - type
 	1 - POS_X

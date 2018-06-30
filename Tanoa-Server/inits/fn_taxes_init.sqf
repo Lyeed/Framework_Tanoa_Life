@@ -14,6 +14,6 @@ diag_log "[TAXES] Setup";
 	} else {
 		diag_log format["[ERROR] Taxe [%1] is not defined in ALYSIA_TAXES", (_x select 0)];
 	};
-} forEach (["SELECT variable,value FROM taxes", 2] call EXTDB2_fnc_async);
+} forEach (["SELECT variable,value FROM taxes", 2] call ExtDB3_fnc_async);
 
 diag_log "[TAXES] Ready";

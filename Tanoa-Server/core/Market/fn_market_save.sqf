@@ -15,7 +15,7 @@ diag_log "[BOURSE] Saving";
 			[_ressource] call AlysiaClient_fnc_market_getPrice,
 			_ressource
 		], 1
-	] call EXTDB2_fnc_async;
+	] call ExtDB3_fnc_async;
 } foreach ("isClass(_x >> 'market')" configClasses (missionConfigFile >> "ALYSIA_ITEMS"));
 
 diag_log "[BOURSE] Saved";

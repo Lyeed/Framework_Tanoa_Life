@@ -35,4 +35,4 @@ _target setVariable ["rank", _level, true];
 		_level,
 		getPlayerUID _target
 	], 1
-] call EXTDB2_fnc_async;
+] call ExtDB3_fnc_async;

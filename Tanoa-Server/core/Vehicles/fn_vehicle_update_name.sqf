@@ -8,4 +8,4 @@ _name = [_this, 1, "", [""]] call BIS_fnc_param;
 
 if ((_plate isEqualTo -1) || (_name isEqualTo "")) exitWith {};
 
-[format["UPDATE vehicles SET displayname='%1' WHERE plate='%2'", _name, _plate], 1] call EXTDB2_fnc_async;
+[format["UPDATE vehicles SET displayname='%1' WHERE plate='%2'", _name, _plate], 1] call ExtDB3_fnc_async;

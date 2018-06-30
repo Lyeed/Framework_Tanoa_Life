@@ -29,7 +29,7 @@ _plate = str(round(random(999999)));
 		_dir,
 		[_require] call AlysiaServer_fnc_mresArray
 	], 1
-] call EXTDB2_fnc_async;
+] call ExtDB3_fnc_async;
 
 gServer_companies pushBack ([_name, (getPlayerUID _owner), _type, _plate, (_owner getVariable ["realname", (name _owner)]), _position, _dir, _require] call AlysiaServer_fnc_construction_init);
 deleteVehicle _object;

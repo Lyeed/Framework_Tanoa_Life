@@ -28,7 +28,7 @@ diag_log "[VEHICLES] Saving...";
 					([([_x] call AlysiaClient_fnc_getAllHitPointsDamage) select 2] call AlysiaServer_fnc_mresArray),
 					(_x getVariable ["refuel_type", ""])
 				], 1
-			] call EXTDB2_fnc_async;
+			] call ExtDB3_fnc_async;
 			deleteVehicle _x;
 		};
 	};

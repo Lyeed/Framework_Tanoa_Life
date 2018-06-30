@@ -16,6 +16,6 @@ if ((isNull _storage) || (isNull _target)) exitWith {};
 		[([getWeaponCargo _storage, getMagazineCargo _storage, getItemCargo _storage, getBackpackCargo _storage])] call AlysiaServer_fnc_mresArray,
 		(_target getVariable "house_owner") select 2
 	], 1
-] call EXTDB2_fnc_async;
+] call ExtDB3_fnc_async;
 
 deleteVehicle _storage;

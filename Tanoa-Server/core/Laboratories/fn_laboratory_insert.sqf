@@ -28,7 +28,7 @@ _pos = getPosATL _object;
 		_type,
 		[_require] call AlysiaServer_fnc_mresArray
 	], 1
-] call EXTDB2_fnc_async;
+] call ExtDB3_fnc_async;
 
 gServer_laboratories pushBack ([_uid, _type, _plate, _pos, (getdir _object), _require] call AlysiaServer_fnc_laboratory_init_construction);
 deleteVehicle _object;

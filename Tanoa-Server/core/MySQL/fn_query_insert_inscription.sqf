@@ -37,6 +37,6 @@ if (
 		_sexe,
 		(face _player)
 	], 1
-] call EXTDB2_fnc_async;
+] call ExtDB3_fnc_async;
 
 [_player] call AlysiaServer_fnc_query_select_connect;

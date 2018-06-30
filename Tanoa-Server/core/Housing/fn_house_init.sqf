@@ -6,7 +6,7 @@ private["_countFail", "_countOk"];
 
 diag_log "[HOUSE] Setup";
 
-["DELETE houses.* FROM houses INNER JOIN players ON houses.pid=players.uid WHERE DATEDIFF(NOW(),players.STATS_last_update)>31", 1] call EXTDB2_fnc_async;
+["DELETE houses.* FROM houses INNER JOIN players ON houses.pid=players.uid WHERE DATEDIFF(NOW(),players.STATS_last_update)>31", 1] call ExtDB3_fnc_async;
 uiSleep 1;
 
 _countFail = 0;
@@ -18,7 +18,7 @@ gServer_houses = [];
 	if (isNull _house) then
 	{
 		diag_log format["[ERROR] Can't load house [%1] owner [%2] (objNull)", (_x select 7), (_x select 1)];
-		[format["DELETE FROM houses WHERE plate='%1'", (_x select 0)], 1] call EXTDB2_fnc_async;
+		[format["DELETE FROM houses WHERE plate='%1'", (_x select 0)], 1] call ExtDB3_fnc_async;
 		_countFail = _countFail + 1;
 	} else {
 		if (_house in gServer_houses) then {
@@ -40,7 +40,7 @@ gServer_houses = [];
 			gServer_houses pushBack _house;
 		};
 	};
-} forEach (["SELECT houses.plate,houses.pid,houses.POS_x,houses.POS_y,houses.POS_z,players.profileName,houses.tenants,houses.classname FROM houses INNER JOIN players ON houses.pid=players.uid", 2] call EXTDB2_fnc_async);
+} forEach (["SELECT houses.plate,houses.pid,houses.POS_x,houses.POS_y,houses.POS_z,players.profileName,houses.tenants,houses.classname FROM houses INNER JOIN players ON houses.pid=players.uid", 2] call ExtDB3_fnc_async);
 /*
 	0:houses.plate
 	1:houses.pid

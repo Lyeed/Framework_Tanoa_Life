@@ -50,7 +50,7 @@ independent setFriend [east, 1];
 independent setFriend [civilian, 1];
 independent setFriend [west, 1];
 
-if (!(["tanoa", "SQL_RAW_V2", "ADD_QUOTES"] call EXTDB2_fnc_init)) exitWith {};
+if (!(["tanoa", "SQL", "TEXT2"] call ExtDB3_fnc_init)) exitWith {};
 
 addMissionEventHandler ["HandleDisconnect", {_this call AlysiaServer_fnc_clientDisconnect}];
 

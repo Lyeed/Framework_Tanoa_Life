@@ -8,7 +8,7 @@ _from = [_this, 1, objNull, [objNull]] call BIS_fnc_param;
 
 if ((isNull _house) || (isNull _from)) exitWith {};
 
-_ret = [format["SELECT STOCK_virtual,STOCK_arma FROM houses WHERE plate='%1'", (_house getVariable "house_owner") select 2], 2] call EXTDB2_fnc_async;
+_ret = [format["SELECT STOCK_virtual,STOCK_arma FROM houses WHERE plate='%1'", (_house getVariable "house_owner") select 2], 2] call ExtDB3_fnc_async;
 
 if (count(_ret) > 0) then
 {

@@ -11,7 +11,7 @@ if ((_uid isEqualTo "") || (_rank isEqualTo -1) || (_side isEqualTo sideUnknown)
 
 switch (_side) do
 {
-	case east: {[format["UPDATE players SET EAST_level='%1' WHERE uid='%2'", _rank, _uid], 1] call EXTDB2_fnc_async};
-	case west: {[format["UPDATE players SET WEST_level='%1' WHERE uid='%2'", _rank, _uid], 1] call EXTDB2_fnc_async};
-	case independent: {[format["UPDATE players SET GUER_level='%1' WHERE uid='%2'", _rank, _uid], 1] call EXTDB2_fnc_async};
+	case east: {[format["UPDATE players SET EAST_level='%1' WHERE uid='%2'", _rank, _uid], 1] call ExtDB3_fnc_async};
+	case west: {[format["UPDATE players SET WEST_level='%1' WHERE uid='%2'", _rank, _uid], 1] call ExtDB3_fnc_async};
+	case independent: {[format["UPDATE players SET GUER_level='%1' WHERE uid='%2'", _rank, _uid], 1] call ExtDB3_fnc_async};
 };

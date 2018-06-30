@@ -34,6 +34,6 @@ if (!(isNull _object)) then {_object setPosATL _new};
 		(_new select 2),
 		_marker
 	], 1
-] call EXTDB2_fnc_async;
+] call ExtDB3_fnc_async;
 
 [_marker] remoteExecCall ["AlysiaClient_fnc_dynamicMarkers_update", -2];

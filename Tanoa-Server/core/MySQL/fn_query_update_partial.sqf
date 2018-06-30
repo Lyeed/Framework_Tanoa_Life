@@ -53,7 +53,7 @@ _query = switch (_mode) do
 };
 
 if (_query != "") then {
-	[format["UPDATE players SET %1 WHERE uid='%2'", _query, _uid], 1] call EXTDB2_fnc_async;
+	[format["UPDATE players SET %1 WHERE uid='%2'", _query, _uid], 1] call ExtDB3_fnc_async;
 } else {
 	diag_log format["[ERROR] %1 : cannot find _query for partial update", _this];
 };

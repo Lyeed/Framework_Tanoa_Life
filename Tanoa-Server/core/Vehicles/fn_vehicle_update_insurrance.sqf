@@ -8,4 +8,4 @@ _insurrance = [_this, 1, 0, [0]] call BIS_fnc_param;
 
 if (_plate isEqualTo -1) exitWith {};
 
-[format["UPDATE vehicles SET assurance='%1' WHERE plate='%2'", _insurrance, _plate], 1] call EXTDB2_fnc_async;
+[format["UPDATE vehicles SET assurance='%1' WHERE plate='%2'", _insurrance, _plate], 1] call ExtDB3_fnc_async;

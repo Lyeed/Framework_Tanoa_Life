@@ -26,7 +26,7 @@ _queryResult =
 		str(side _unit),
 		_types_formated
 	], 2
-] call EXTDB2_fnc_async;
+] call ExtDB3_fnc_async;
 
 {
 	(_queryResult select _forEachIndex) set [4, [(_x select 4)] call AlysiaServer_fnc_mresToArray];// inventory

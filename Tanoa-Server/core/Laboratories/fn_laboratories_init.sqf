@@ -6,7 +6,7 @@ private "_object";
 
 diag_log "[LABORATORIES] Setup";
 
-["DELETE labo.* FROM labo INNER JOIN players ON labo.owner=players.uid WHERE DATEDIFF(NOW(),players.STATS_last_update)>31", 1] call EXTDB2_fnc_async;
+["DELETE labo.* FROM labo INNER JOIN players ON labo.owner=players.uid WHERE DATEDIFF(NOW(),players.STATS_last_update)>31", 1] call ExtDB3_fnc_async;
 uiSleep 1;
 
 gServer_laboratories = [];
@@ -21,7 +21,7 @@ gServer_laboratories = [];
 
 	diag_log format["Loading laboratory [%1] owner [%2] plate [%3]", (_x select 2), (_x select 1), (_x select 0)];
 	gServer_laboratories pushBack _object;
-} forEach (["SELECT plate,owner,type,POS_x,POS_y,POS_z,POS_direction,EXTRA_process,CONSTRUCTION_BUILT,CONSTRUCTION_REQUIRE,INV_virtual FROM labo", 2] call EXTDB2_fnc_async);
+} forEach (["SELECT plate,owner,type,POS_x,POS_y,POS_z,POS_direction,EXTRA_process,CONSTRUCTION_BUILT,CONSTRUCTION_REQUIRE,INV_virtual FROM labo", 2] call ExtDB3_fnc_async);
 /*
 	0 - plate
 	1 - owner

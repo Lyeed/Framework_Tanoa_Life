@@ -6,7 +6,7 @@
 diag_log "[COMPANIES] Saving ...";
 
 diag_log " Cleaning companies_bank_transactions table...";
-["DELETE FROM companies_bank_transactions", 1] call EXTDB2_fnc_async;
+["DELETE FROM companies_bank_transactions", 1] call ExtDB3_fnc_async;
 
 {
 	_info = _x getVariable ["company_info", []];
@@ -26,7 +26,7 @@ diag_log " Cleaning companies_bank_transactions table...";
 					[(_x getVariable ["construction_require", []])] call AlysiaServer_fnc_mresArray,
 					(_info select 3)
 				], 1
-			] call EXTDB2_fnc_async;
+			] call ExtDB3_fnc_async;
 		} else {
 			[
 				format
@@ -40,7 +40,7 @@ diag_log " Cleaning companies_bank_transactions table...";
 					[(_x getVariable ["company_inv_arma", []])] call AlysiaServer_fnc_mresArray,
 					(_x getVariable ["company_link_percentage", 0])
 				], 1
-			] call EXTDB2_fnc_async;
+			] call ExtDB3_fnc_async;
 
 			{
 				[
@@ -54,7 +54,7 @@ diag_log " Cleaning companies_bank_transactions table...";
 						(_x select 3),
 						(_x select 4)
 					], 1
-				] call EXTDB2_fnc_async;
+				] call ExtDB3_fnc_async;
 			} forEach (_x getVariable ["company_bank_history", []]);
 		};
 	};

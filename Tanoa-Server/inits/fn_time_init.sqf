@@ -6,7 +6,7 @@ private "_queryResult";
 
 diag_log "[TIME] Setup";
 
-_queryResult = ["SELECT year,month,day,hour,minute FROM serverinfo", 2] call EXTDB2_fnc_async;
+_queryResult = ["SELECT year,month,day,hour,minute FROM serverinfo", 2] call ExtDB3_fnc_async;
 if (_queryResult isEqualTo []) then
 {
 	private "_start";
@@ -22,7 +22,7 @@ if (_queryResult isEqualTo []) then
 			_start select 3,
 			_start select 4
 		], 1
-	] call EXTDB2_fnc_async;
+	] call ExtDB3_fnc_async;
 	_queryResult = _start;
 } else {
 	_queryResult = _queryResult select 0;

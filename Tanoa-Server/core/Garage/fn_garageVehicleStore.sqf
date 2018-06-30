@@ -26,7 +26,7 @@ if (!(isNil "_vInfo")) then
 			[([_vehicle] call AlysiaClient_fnc_getAllHitPointsDamage) select 2] call AlysiaServer_fnc_mresArray,
 			(_vehicle getVariable ["refuel_type", ""])
 		], 1
-	] call EXTDB2_fnc_async;
+	] call ExtDB3_fnc_async;
 };
 
 deleteVehicle _vehicle;

@@ -30,7 +30,7 @@ gServer_houses pushBack _house;
 		_rand,
 		typeOf(_house)
 	], 1
-] call EXTDB2_fnc_async;
+] call ExtDB3_fnc_async;
 
 _this call AlysiaServer_fnc_logHouseBuy;
 

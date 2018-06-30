@@ -6,7 +6,7 @@
 diag_log "[FUEL] Saving ...";
 
 diag_log "Cleaning land_fuels table...";
-["DELETE FROM land_fuels", 1] call EXTDB2_fnc_async;
+["DELETE FROM land_fuels", 1] call ExtDB3_fnc_async;
 
 if (count(gServer_fuelStations) > 0) then
 {
@@ -28,7 +28,7 @@ if (count(gServer_fuelStations) > 0) then
 				[_x, "GPL"] call AlysiaClient_fnc_fuelStation_fuel_getStock,
 				[_x, "Bio"] call AlysiaClient_fnc_fuelStation_fuel_getStock
 			], 1
-		] call EXTDB2_fnc_async;
+		] call ExtDB3_fnc_async;
 	} forEach gServer_fuelStations;
 };
 

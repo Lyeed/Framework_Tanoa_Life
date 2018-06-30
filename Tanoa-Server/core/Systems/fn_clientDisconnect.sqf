@@ -40,7 +40,7 @@ if (!(isNil "_name")) then
 			([(_unit getVariable ["is_coma", false])] call AlysiaServer_fnc_bool),
 			([(_unit getVariable ["bullet_check", false])] call AlysiaServer_fnc_bool)
 		], 1
-	] call EXTDB2_fnc_async;
+	] call ExtDB3_fnc_async;
 
 	{
 		if (!(isNull _x)) then

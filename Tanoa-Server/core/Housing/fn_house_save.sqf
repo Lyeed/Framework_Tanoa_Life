@@ -20,7 +20,7 @@ diag_log "[HOUSE] Saving ...";
 					[(_x getVariable ["house_tenants", []])] call AlysiaServer_fnc_mresArray,
 					_id
 				], 1
-			] call EXTDB2_fnc_async;
+			] call ExtDB3_fnc_async;
 
 			diag_log format["Saving house ID : %1", _id];
 		};

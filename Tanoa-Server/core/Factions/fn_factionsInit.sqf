@@ -48,6 +48,6 @@ diag_log "[FACTION] Setup";
 	} else {
 		diag_log format["[ERROR] Invalid faction %1 : cannot load", (_x select 0)];
 	};
-} forEach (["SELECT name,bank,history FROM factions", 2] call EXTDB2_fnc_async);
+} forEach (["SELECT name,bank,history FROM factions", 2] call ExtDB3_fnc_async);
 
 diag_log "[FACTION] Ready";
