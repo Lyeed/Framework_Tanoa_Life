@@ -93,7 +93,7 @@ gServer_rebootHour_txt = "";
 	};
 
 	gServer_rebootHour_txt = format["%1%2:00 ", gServer_rebootHour_txt, _x];
-} forEach getArray(configFile >> "Cfg_Server" >> "reboot" >> "hours");
+} forEach getArray(configFile >> "Cfg_Server" >> "rebootHours");
 if (isNil "_best") then
 {
 	{
@@ -104,7 +104,7 @@ if (isNil "_best") then
 				_best = _x;
 			};
 		};
-	} forEach getArray(configFile >> "Cfg_Server" >> "reboot" >> "hours");
+	} forEach getArray(configFile >> "Cfg_Server" >> "rebootHours");
 	gServer_rebootHour = (((_best + 24) - _hour) * 60) - _min;
 } else {
 	gServer_rebootHour = ((_best - _hour) * 60) - _min;
@@ -120,7 +120,7 @@ publicVariable "gServer_rebootHour_txt";
 gServer_mods = [];
 {
 	_pbo = configName _x;
-	if (!(_pbo in ["TanoaServer","asm"])) then {
+	if !(_pbo in getArray(configFile >> "Cfg_Server" >> "serverMods")) then {
 		gServer_mods pushBack _pbo;
 	};
 } forEach ("true" configClasses (configFile >> "CfgPatches"));

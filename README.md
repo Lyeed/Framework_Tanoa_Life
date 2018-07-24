@@ -1,75 +1,49 @@
 # Framework Tanoa Life
 This framework is a total modification for ArmA3 game.
 
-## What is this repository ?
-It's a **merged** version more developer friendly
-
-Originals:
-- https://github.com/Lyeed/Life-Server
-- https://github.com/Lyeed/Tanoa-Life
-
 ## Requirements
 
-
 ### Mandatory
+- Arma 3 server
+- Database
 - [extDB3](https://bitbucket.org/torndeco/extdb3/overview)
 - [extLOG](https://github.com/Torndeco/extLOG)
-- [Framework's Arma 3 Add-ons](https://mega.nz/#!GEkACATR!iDuiZAuI2xuLEIZHk32F4YGHw9neC5gBjjClZFPUHq8)
+- [Arma 3 framework addons](https://mega.nz/#!GEkACATR!iDuiZAuI2xuLEIZHk32F4YGHw9neC5gBjjClZFPUHq8)
 
 ### Useful links
 - Server Start-up/Reboot management: [Batch file](https://www.altisliferpg.com/topic/2212-basic-bat-server-start)
 - Database: [MySQL Server](https://dev.mysql.com/downloads/mysql)
 - SQL Administration Tool: [HeidiSQL](https://www.heidisql.com/download.php)
 - Text Editor: [Sublime Text 3](https://www.sublimetext.com/3)
+- Command-line steam version: [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD)
 
-## Database
-- Execute the script database.sql on your SQL server.
-- Modify ExtDB's configuration file according to your needs:
+## Configuration
+### Server side [-Link-](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Server/configs/Config_Server.hpp)
+### Staff members [-Link-](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/configs/GameConfigs/Config_Staff.hpp)
+### TaskForceRadio informations
+##### initPlayerLocal [-Link-](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/initPlayerLocal.sqf)
+- Line 88 : Replace YOUR TEAMSPEAK NAME by your TeamSpeak's server name.
+**Example:**
+`waitUntil {(["Lyeed Tanoa Life Teamspeak", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)};`
+- Line 93 : Your channel name. Default: TaskForceRadio
 
-		[tanoa]
-		IP = 127.0.0.1
-		Port = 3306
-		Username = root
-		Password =  *******
-		Database = tanoa
+##### fn_init_loops.sqf [-Link-](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/core/Inits/fn_init_loops.sqf)
+- Line 140: Specify all channels that players are allowed to visit while connected.
+**Example:**
+`if (!((call TFAR_fnc_getTeamSpeakChannelName) in ["TaskForceRadio","MyNewChannel"])) then`
+- Line 152: Replace YOUR TEAMSPEAK NAME by your TeamSpeak's server name.
+**Example:**
+`if (!(["Lyeed Tanoa Life Teamspeak", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)) then`
 
-
-## Important files to modify
-1. Server configuration [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Server/configs/Config_Server.hpp)
-2. Staff members [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/configs/GameConfigs/Config_Staff.hpp)
-3. TaskForceRadio informations
-	- initPlayerLocal.sqf [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/initPlayerLocal.sqf)
-
-		- Line 88: Replace [YOUR TEAMSPEAK NAME] by your TeamSpeak's name.
-		**Example:**
-		``
-			waitUntil {(["Lyeed Tanoa Life Teamspeak", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)};
-		``
-
-		- Line 93: Your channel name. Default: TaskForceRadio
-
-	- fn_init_loops.sqf [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/core/Inits/fn_init_loops.sqf)
-
-		- Line 140: Specify all channels that players are allowed to visit while connected.
-		**Example:**
-		``
-			if (!((call TFAR_fnc_getTeamSpeakChannelName) in ["TaskForceRadio", "MyNewChannel"])) then
-		``
-
-		- Line 152: Replace [YOUR TEAMSPEAK NAME] by your TeamSpeak's name.
-		**Example:**
-		``
-			if (!(["Lyeed Tanoa Life Teamspeak", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)) then
-		``
-
-4. Server Add-ons Configurations [Link](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Server/fn_initServer.sqf)
-	- Line 123: Add in the array your server's add-ons CfgPatches.
-	**Example:**
-	``
-		if (!(_pbo in ["TanoaServer","asm","myNewAddon"])) then {
-	``
-
-	:warning: You must add add-ons CfgPatches and not add-ons folder names. Check out this information in your add-on config.cpp file.
+### Database
+- Execute the script [database](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/database.sql) on your SQL server.
+- Modify ExtDB configuration file according to your needs:
+		[tanoa]//<--------------- IMPORTANT
+		IP = 127.0.0.1//<-------- CHANGE IF YOUR DATABASE IS NOT LOCAL
+		Port = 3306//<----------- DEFAULT MySQL PORT
+		Username = root//<------- DATABASE ACCOUNT WITH PRIVILEGES TO USE
+		Password =  *******//<--- DATABASE ACCOUNT PASSWORD. CHANGE IT
+		Database = tanoa//<------ IMPORTANT
 
 ## Author
 * **Lyeed** - [Lyeed](https://github.com/Lyeed)

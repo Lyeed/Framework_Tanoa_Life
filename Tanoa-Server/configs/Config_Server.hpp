@@ -1,14 +1,32 @@
-class Cfg_Server
-{
-	rcon_password="my_rcon_password";
-	TFR_password="my_tfr_password";
+class Cfg_Server {
+
+	/* PASSWORDS */
+	rcon_password="ChangeMe";
+	TFR_password="ChangeMe";
+
+	/* TIME MULTIPLIERS */
 	TimeMultiplier_day=5;
 	TimeMultiplier_night=14;
-	starting_time[]={2018, 5, 30, 12, 0};//year month day hour min
 
-	class reboot
-	{
-		hours[]={2, 8, 14, 20};
+	starting_time[]={
+		2018,// year
+		5,// month
+		30,// day
+		12,// hour
+		0// minute
+	};
+
+	serverMods[]={// Local server modsCfgPatches
+		"TanoaServer",
+		"extDB3"
+	};
+
+	/* SHUTDOWN */
+	rebootHours[]={// Local Time (hours)
+		2,
+		8,
+		14,
+		20
 	};
 
 	class dynamic_markers
