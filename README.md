@@ -22,28 +22,29 @@ This framework is a total modification for ArmA3 game.
 ### Staff members [-Link-](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/configs/GameConfigs/Config_Staff.hpp)
 ### TaskForceRadio informations
 ##### initPlayerLocal [-Link-](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/initPlayerLocal.sqf)
-- Line 88 : Replace YOUR TEAMSPEAK NAME by your TeamSpeak's server name.
-**Example:**
+- Line 88 : Replace YOUR TEAMSPEAK NAME by your TeamSpeak's server name.  
 `waitUntil {(["Lyeed Tanoa Life Teamspeak", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)};`
+
 - Line 93 : Your channel name. Default: TaskForceRadio
 
 ##### fn_init_loops.sqf [-Link-](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/core/Inits/fn_init_loops.sqf)
-- Line 140: Specify all channels that players are allowed to visit while connected.
-**Example:**
+- Line 140: Specify all channels that players are allowed to visit while connected.  
 `if (!((call TFAR_fnc_getTeamSpeakChannelName) in ["TaskForceRadio","MyNewChannel"])) then`
-- Line 152: Replace YOUR TEAMSPEAK NAME by your TeamSpeak's server name.
-**Example:**
+
+- Line 152: Replace YOUR TEAMSPEAK NAME by your TeamSpeak's server name.  
 `if (!(["Lyeed Tanoa Life Teamspeak", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)) then`
 
 ### Database
 - Execute the script [database](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/database.sql) on your SQL server.
 - Modify ExtDB configuration file according to your needs:
-		[tanoa]//<--------------- IMPORTANT
-		IP = 127.0.0.1//<-------- CHANGE IF YOUR DATABASE IS NOT LOCAL
-		Port = 3306//<----------- DEFAULT MySQL PORT
-		Username = root//<------- DATABASE ACCOUNT WITH PRIVILEGES TO USE
-		Password =  *******//<--- DATABASE ACCOUNT PASSWORD. CHANGE IT
-		Database = tanoa//<------ IMPORTANT
+```
+[tanoa]//<--------------- IMPORTANT
+IP = 127.0.0.1//<-------- CHANGE IF YOUR DATABASE IS NOT LOCAL
+Port = 3306//<----------- DEFAULT MySQL PORT
+Username = root//<------- DATABASE ACCOUNT WITH PRIVILEGES TO USE
+Password =  *******//<--- DATABASE ACCOUNT PASSWORD. CHANGE IT
+Database = tanoa//<------ IMPORTANT
+```
 
 ## Author
 * **Lyeed** - [Lyeed](https://github.com/Lyeed)
