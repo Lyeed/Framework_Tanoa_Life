@@ -12,8 +12,8 @@
 */
 
 if (!params [
-	["_mode", 0, [0]],
-	["_queryStmt", "", [""]]
+	["_queryStmt", "", [""]],
+	["_mode", 0, [0]]
 ]) exitWith {};
 
 private _key = "extDB3" callExtension format["%1:%2:%3",_mode, "SQL", _queryStmt];
