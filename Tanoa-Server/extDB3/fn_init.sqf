@@ -46,7 +46,7 @@ if ( isNil {uiNamespace getVariable "extDB_SQL_CUSTOM_ID"}) then
 	_result = call compile ("extDB3" callExtension format ["9:ADD_DATABASE_PROTOCOL:%1:%3:%3:%2", _database, _options, _protocol]);
 	if ((_result select 0) isEqualTo 0) exitWith {diag_log format ["extDB3: Error Database Setup: %1", _result]; false};
 
-	diag_log format "extDB3: Initalized SQL_CUSTOM Protocol";
+	diag_log "extDB3: Initalized SQL_CUSTOM Protocol";
 
 	// extDB3 Lock
 	"extDB3" callExtension "9:LOCK";
