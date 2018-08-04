@@ -30,12 +30,11 @@ if (
 	false;
 };
 
-g_donator = compileFinal (_basic select 8);
-
-g_WESTLevel = compileFinal (_basic select 19);
-g_GUERLevel = compileFinal (_basic select 20);
-g_EASTLevel = compileFinal (_basic select 21);
-g_CIVLevel = compileFinal (_basic select 22);
+g_donator = compileFinal str(_basic select 8);
+g_WESTLevel = compileFinal str(_basic select 19);
+g_GUERLevel = compileFinal str(_basic select 20);
+g_EASTLevel = compileFinal str(_basic select 21);
+g_CIVLevel = compileFinal str(_basic select 22);
 
 _allowed = switch (playerSide) do
 {

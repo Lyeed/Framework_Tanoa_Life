@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `companies`;
 CREATE TABLE IF NOT EXISTS `companies` (
   `plate` varchar(6) NOT NULL COMMENT 'Unique ID',
   `name` varchar(50) NOT NULL DEFAULT '',
-  `owner` char(17) NOT NULL DEFAULT '' COMMENT 'PlayerUID',
+  `owner` varchar(17) NOT NULL DEFAULT '' COMMENT 'PlayerUID',
   `type` varchar(20) NOT NULL DEFAULT '',
   `bank` int(50) unsigned NOT NULL DEFAULT '0' COMMENT 'Money',
   `members` text NOT NULL COMMENT 'Array',
@@ -95,7 +95,7 @@ DROP TABLE IF EXISTS `houses`;
 CREATE TABLE IF NOT EXISTS `houses` (
   `plate` mediumint(6) unsigned NOT NULL COMMENT 'Unique ID',
   `classname` varchar(50) NOT NULL DEFAULT '' COMMENT 'ArmA3 classname',
-  `pid` char(17) NOT NULL DEFAULT '' COMMENT 'PlayerUID',
+  `pid` varchar(17) NOT NULL DEFAULT '' COMMENT 'PlayerUID',
   `STOCK_virtual` text NOT NULL COMMENT 'Array',
   `STOCK_arma` text NOT NULL COMMENT 'Array',
   `POS_x` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `houses` (
 DROP TABLE IF EXISTS `labo`;
 CREATE TABLE IF NOT EXISTS `labo` (
   `plate` mediumint(6) unsigned NOT NULL COMMENT 'Unique ID',
-  `owner` char(17) NOT NULL DEFAULT '' COMMENT 'PlayerUID',
+  `owner` varchar(17) NOT NULL DEFAULT '' COMMENT 'PlayerUID',
   `type` varchar(50) NOT NULL DEFAULT '',
   `POS_x` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
   `POS_y` float NOT NULL DEFAULT '0' COMMENT 'Position ATL',
@@ -166,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `land_fuels` (
 -- Export de la structure de la table tanoa. players
 DROP TABLE IF EXISTS `players`;
 CREATE TABLE IF NOT EXISTS `players` (
-  `uid` char(17) NOT NULL COMMENT 'PlayerUID',
+  `uid` varchar(17) NOT NULL COMMENT 'PlayerUID',
   `profileName` varchar(60) NOT NULL DEFAULT '',
   `RP_firstname` varchar(30) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
   `RP_lastname` varchar(30) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
@@ -290,7 +290,7 @@ DROP TABLE IF EXISTS `vehicles`;
 CREATE TABLE IF NOT EXISTS `vehicles` (
   `plate` mediumint(6) unsigned NOT NULL COMMENT 'Unique ID',
   `classname` varchar(50) NOT NULL COMMENT 'ArmA3 classname',
-  `pid` char(17) NOT NULL COMMENT 'PlayerUID',
+  `pid` varchar(17) NOT NULL COMMENT 'PlayerUID',
   `side` varchar(10) NOT NULL DEFAULT 'CIV' COMMENT 'ArmA3 side',
   `type` varchar(50) NOT NULL DEFAULT 'CAR' COMMENT 'Subtype',
   `inventory` text NOT NULL COMMENT 'Array',
