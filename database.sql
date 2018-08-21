@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `profileName` varchar(60) NOT NULL DEFAULT '',
   `RP_firstname` varchar(30) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
   `RP_lastname` varchar(30) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
-  `RP_birth` varchar(20) NOT NULL DEFAULT '"[]"' COMMENT 'Roleplay information - Array',
+  `RP_birth` text NOT NULL COMMENT 'Roleplay information - Array',
   `RP_nationality` varchar(20) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
   `RP_sexe` varchar(10) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
   `RP_face` varchar(50) NOT NULL DEFAULT '' COMMENT 'Roleplay information',
