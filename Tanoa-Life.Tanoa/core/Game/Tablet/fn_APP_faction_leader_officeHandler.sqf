@@ -16,9 +16,9 @@ _list_faction = _display displayCtrl 8736;
 lbClear _list_faction;
 
 {
-	_index = _list_faction lbAdd format["%1. %2", ([playerSide, parseNumber(_x select 0), true] call AlysiaClient_fnc_rankToStr), (_x select 1)];
+	_index = _list_faction lbAdd format["%1. %2", [playerSide, _x select 0, true] call AlysiaClient_fnc_rankToStr, _x select 1];
 	_list_faction lbSetdata [_index, _x select 2];
-	_list_faction lbSetValue [_index, parseNumber(_x select 0)];
+	_list_faction lbSetValue [_index, _x select 0];
 } forEach _members;
 
 lbSortByValue _list_faction;
