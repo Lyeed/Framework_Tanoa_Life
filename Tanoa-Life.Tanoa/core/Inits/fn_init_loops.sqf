@@ -175,7 +175,7 @@
 
 		if (("(getText(_x >> 'uid') isEqualTo (getPlayerUID player)) && (getNumber(_x >> 'teamspeak') isEqualTo 1)" configClasses (missionConfigFile >> "ALYSIA_STAFF" >> "members")) isEqualTo []) then
 		{
-			if ((["Alysia", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString) && (call TFAR_fnc_isTeamSpeakPluginEnabled)) then
+			if ((["YOUR TEAMSPEAK NAME", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString) && (call TFAR_fnc_isTeamSpeakPluginEnabled)) then
 			{
 				if (!((call TFAR_fnc_getTeamSpeakChannelName) isEqualTo "TaskForceRadio")) then {
 					[] spawn _fnc_channel;
