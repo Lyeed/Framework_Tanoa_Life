@@ -31,7 +31,7 @@ This framework is a total modification for ArmA3 game.
 - Line 140: Specify all channels that players are allowed to visit while connected.  
 `if (!((call TFAR_fnc_getTeamSpeakChannelName) in ["TaskForceRadio","MyNewChannel"])) then`
 
-- Line 152: Replace YOUR TEAMSPEAK NAME by your TeamSpeak's server name.  
+- Line 152 and 178: Replace YOUR TEAMSPEAK NAME by your TeamSpeak's server name.  
 `if (!(["Lyeed Tanoa Life Teamspeak", (call TFAR_fnc_getTeamSpeakServerName)] call BIS_fnc_inString)) then`
 
 ### Database
