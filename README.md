@@ -1,5 +1,12 @@
 # Framework Tanoa Life
-This framework is a total modification for ArmA3 game.
+
+This framework is a **total modification for ArmA3 game**.
+
+I was a developer for Alysia, a french server that closed. I decided to share my work to the community.
+
+The mission is coded in english but user's messages are hard coded in french.
+
+**My work is free** and you should never pay for it.
 
 ## Requirements
 
