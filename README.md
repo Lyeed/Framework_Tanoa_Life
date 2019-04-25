@@ -1,12 +1,35 @@
-# Framework Tanoa Life
+![Logo](https://i.ibb.co/d6FnmGv/tanoalife-1.jpg)
 
-This framework is a **total modification for ArmA3 game**.
+[![badgeGitHub](https://img.shields.io/github/stars/Lyeed/Framework_Tanoa_Life.svg?style=social)](https://github.com/Lyeed/Framework_Tanoa_Life/stargazers) [![badgeGitHub](https://img.shields.io/github/followers/Lyeed.svg?label=Follow&style=social)](https://github.com/Lyeed) [![badgeGitHub](https://img.shields.io/github/forks/Lyeed/Framework_Tanoa_Life.svg?style=social)](https://github.com/Lyeed/Framework_Tanoa_Life)
 
-I was a developer for Alysia, a french server that closed. I decided to share my work to the community.
+# Tanoa Life
 
-The mission is coded in english but user's messages are hard coded in french.
+This repository is **multiplayer total modification for ARMA3 game**.
 
-**My work is free** and you should never pay for it.
+It was developped in 2017 for a french server called Alysia. I decided to share my work to the ARMA series community to offer people a proper roleplay mission. The mission is coded in english but user's messages are hard coded in french.
+
+If you wish to contribute in your way, please feel free to contact me or to create a pull request.
+
+The framework is **highly configurable** with the use of many configuration files in the mission which can custom the gameplay as much as you like.
+
+## Features
+- Dynamic markers system
+- Character creation form during first connection
+- Company system allowing your players to create their own company where they desire
+- Exchanges items between players via the trade menu
+- A complete modpack containing framework's assets  and completing the immersion
+- Licenses
+- A fully functionnable phone mimicing a real phone dial
+- Money laundering
+- Rebel levels/licenses
+- Different fuel types and compatibility
+- Housing system with a vast variety of possible buy
+- Complete medical system with blood, bleeding and a coma state
+- Narcotic production in laboratories bought, place and built by players. These can be destroyed by the law forces
+- A tablet containing applications such as a store, your phone, your bank account, the market and many other
+- Blueprints allowing you to build unique weapons and items
+- Ingame administration menu allowing you to moderate your server
+- Many other...
 
 ## Requirements
 
@@ -23,6 +46,7 @@ The mission is coded in english but user's messages are hard coded in french.
 - SQL Administration Tool: [HeidiSQL](https://www.heidisql.com/download.php)
 - Text Editor: [Sublime Text 3](https://www.sublimetext.com/3)
 - Command-line steam version: [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD)
+- Arma 3 server profile: [Bohemia Wiki](https://community.bistudio.com/wiki/server.armaprofile)
 
 ## Configuration
 ### Server side [-Link-](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Server/configs/Config_Server.hpp)
@@ -54,7 +78,7 @@ Database = tanoa//<------ IMPORTANT
 ```
 
 ## Author
-* **Lyeed** - [Lyeed](https://github.com/Lyeed)
+[Lyeed](https://github.com/Lyeed)
 
 ## License
 For a human-readable version of the [project's license](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/LICENSE.md), see http://creativecommons.org/licenses/by-nc-nd/4.0/
