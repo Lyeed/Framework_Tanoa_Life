@@ -13,7 +13,7 @@ lbClear _list;
 
 {
 	_index = _list lbAdd getText(_x >> "name");
-	_list lbSetValue [_index, ((call compile (configName _x)) * 100];
+	_list lbSetValue [_index, ((call compile (configName _x)) * 100)];
 	_list lbSetData [_index, (configName _x)];
 } forEach ("true" configClasses (missionConfigFile >> "ALYSIA_TAXES"));
 
