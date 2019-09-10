@@ -31,6 +31,14 @@ The framework is **highly configurable** with the use of many configuration file
 - Ingame administration menu allowing you to moderate your server
 - Many other...
 
+## Architechture
+`Tanoa-Life.Tanoa` - Arma 3 multiplayer mission  
+`Tanoa-Server` - Arma 3 server addon  
+`database.sql` - SQL database file. Create the database  
+`Server.ArmA3Profile` - Arma 3 server profile you can use to improve ingame immersion   
+`Somes PSD` - Photoshop files you can custom such as the GPS   
+`Teamspeak-Logos` - Teamspeak icons   
+
 ## Requirements
 
 ### Mandatory
@@ -87,6 +95,24 @@ For a human-readable version of the [project's license](https://github.com/Lyeed
 Please open an issue for any encountered bug, I will do my best to correct it.
 
 If you are not familiar with the GitHub's issue system, please refer to [the documentation](https://guides.github.com/features/issues/)
+
+## Q&A
+*Q: Where do I modify the ingame configuration such as items, prices or vehicles ?*  
+A: You can edit all the configuration files in the [GameConfig folder](https://github.com/Lyeed/Framework_Tanoa_Life/blob/master/Tanoa-Life.Tanoa/configs/GameConfigs)
+
+*Q: Where do I find processes ?*  
+A: Most of the resources are linked to a specific company type. Each type have its own building and processes. Companies must be built by players.
+
+*Q: Where do I find processes ?*  
+A: Most of the resources are linked to a specific company type. Each type have its own building and processes. Companies must be built by players.
+
+*Q: How to create a company ?* 
+A: In order to create a company, the player in charge of registering companies (the one with the "coop_agri" license) has to press the interaction button (windows by default) while targeting the new CEO. He will have an option in his interactions menu to create a company. He has to specify the company type and name. When pressing enter a construction block will appear and players will be able to gather and put materials in it. If you want to skip the construction part as admin you can while targeting the construction block, go to the admin app and press "construire" (build) If you don't have access to the admin app you can register your UID and permissions here.
+
+*Q: Can I change the framework map ?* 
+A: Yes you can. You are going to have to import the mission.sqm to a different map and to modify the server game config positions.
+
+**[In writing]**
 
 ## Pictures
 ![Tablet_1](https://cdn.discordapp.com/attachments/434398524269002784/435855164650553354/20180415121249_1.jpg)
