@@ -536,6 +536,7 @@ class RscMapControl
     colorRailWay[]={0.8,0.2,0,1};
     colorGrid[]={0,0,0,0.6};
     colorGridMap[]={0.05,0.1,0,0.4};
+	widthRailWay=1;
 
 	font="TahomaB";
 	sizeEx=0.040000;
