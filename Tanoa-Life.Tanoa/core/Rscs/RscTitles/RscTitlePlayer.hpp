@@ -217,7 +217,6 @@ class RscTitlePlayer
 		class GPS_MAP: RscMapControl
 		{
 			idc=23539;
-			widthRailWay=1;
 
 			x=0.877292 * safezoneW + safezoneX;
 			y=0.826296 * safezoneH + safezoneY;
