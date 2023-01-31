@@ -44,7 +44,7 @@ The framework is **highly configurable** with the use of many configuration file
 ### Mandatory
 - Arma 3 server
 - Database
-- [extDB3](https://bitbucket.org/torndeco/extdb3/overview)
+- [extDB3](https://github.com/SteezCram/extDB3)
 - [extLOG](https://github.com/Torndeco/extLOG)
 - [Arma 3 framework addons](https://mega.nz/#!GEkACATR!iDuiZAuI2xuLEIZHk32F4YGHw9neC5gBjjClZFPUHq8)
 
