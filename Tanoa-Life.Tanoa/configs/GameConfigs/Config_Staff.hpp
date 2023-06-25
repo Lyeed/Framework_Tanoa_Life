@@ -5,10 +5,10 @@ class ALYSIA_STAFF
 	class ranks
 	{
 		class admin {
-			name="Administrateur";
+			name="Administrator";
 		};
 		class modo {
-			name="Modérateur";
+			name="Moderator";
 		};
 		class support {
 			name="Support";
